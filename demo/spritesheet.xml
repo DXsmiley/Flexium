@@ -1,0 +1,22 @@
+<!--
+<spritesheet>
+
+	<sprite name="image">
+		<frame source="image.png" />
+	</sprite>
+	
+</spritesheet>
+-->
+
+<spritesheet format="2">
+
+	<sprite name="image">
+		<frame source="image.png" />
+	</sprite>
+
+	<texture source="animation.png">
+		<strip name="animation" x="0" y="0" width="32" height="32" frames="4"/>
+		<strip name="animation2" x="0" y="32" width="32" height="32" frames="4" />
+	</texture>
+
+</spritesheet>
