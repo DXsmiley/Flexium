@@ -73,3 +73,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.sublime-workspace
+*.d

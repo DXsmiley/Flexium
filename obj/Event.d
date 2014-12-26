@@ -1,1 +1,1 @@
-obj/Event.o: src/Event.cpp include/Event.hpp
+obj/Event.o: src/Event.cpp include/Flexium/Event.hpp

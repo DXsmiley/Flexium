@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Obj",
+				"ObjectTwo"
+			],
+			[
+				"Objec",
+				"ObjectOne"
+			],
+			[
 				"spr",
 				"spr_name"
 			],
@@ -506,14 +514,6 @@
 			[
 				"Syst",
 				"SystemBase"
-			],
-			[
-				"System",
-				"SystemNoEntities"
-			],
-			[
-				"LOG",
-				"LOG_WARN"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 334.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
@@ -628,12 +628,17 @@
 	},
 	"expanded_folders":
 	[
-		"/J/Flexium",
-		"/J/Flexium/utility",
-		"/J/Flexium/utility/resource"
+		"/J/Flexium"
 	],
 	"file_history":
 	[
+		"/J/Flexium/makefile",
+		"/J/Flexium/tests/RemoveObjectWhileIterating.cpp",
+		"/J/Flexium/tests/AddObjectWhileIterating.cpp",
+		"/J/Flexium/lib/Info.txt",
+		"/J/Flexium/src/Input.cpp",
+		"/J/Flexium/README.md",
+		"/J/Flexium/utility/base_code/Readme.txt",
 		"/J/Flexium/utility/resource/Main.cpp",
 		"/J/Flexium/Doxyfile",
 		"/J/Flexium/Flexium.sublime-project",
@@ -664,7 +669,6 @@
 		"/J/Flexium/demo/sound.wav",
 		"/J/Flexium/test/spritesheet.xml",
 		"/J/Flexium/src/Flexium.cpp",
-		"/J/Flexium/makefile",
 		"/J/Flexium/test/makefile",
 		"/J/Flexium/utility/resource/makefile",
 		"/J/Flexium/src/Window.cpp",
@@ -686,7 +690,6 @@
 		"/J/Flexium/include/World.hpp",
 		"/J/Flexium/backup/World.hpp",
 		"/J/Flexium/backup/World.cpp",
-		"/J/Flexium/src/Input.cpp",
 		"/J/TheMountain/Readonly.h",
 		"/J/TheMountain/FlexiumEditor.cpp",
 		"/J/TheMountain/FlexiumDemo.cpp",
@@ -756,12 +759,7 @@
 		"/J/Flexium/PickupAbility.hpp",
 		"/J/Flexium/maps/garden.tmx",
 		"/J/Flexium/SpawnGround.cpp",
-		"/J/Flexium/HUD.hpp",
-		"/J/Flexium/Player.cpp",
-		"/J/Flexium/Player.hpp",
-		"/J/Flexium/View.cpp",
-		"/J/Flexium/AbilityStaff.hpp",
-		"/J/Flexium/AbilityStaff.cpp"
+		"/J/Flexium/HUD.hpp"
 	],
 	"find":
 	{
@@ -1534,7 +1532,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 226.0,
+	"side_bar_width": 259.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

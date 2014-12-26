@@ -1,2 +1,2 @@
-obj/Window.o: src/Window.cpp include/Window.hpp include/Flexium.hpp \
- include/Vector.hpp
+obj/Window.o: src/Window.cpp include/Flexium/Window.hpp \
+ include/Flexium/Flexium.hpp include/Flexium/Vector.hpp

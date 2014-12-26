@@ -1,1 +1,1 @@
-obj/Random.o: src/Random.cpp include/Random.hpp
+obj/Random.o: src/Random.cpp include/Flexium/Random.hpp

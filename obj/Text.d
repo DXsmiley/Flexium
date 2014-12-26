@@ -1,3 +1,5 @@
-obj/Text.o: src/Text.cpp include/Text.hpp include/Window.hpp \
- include/Console.hpp include/Flexium.hpp include/Vector.hpp \
- include/Object.hpp include/pugixml.hpp include/pugiconfig.hpp
+obj/Text.o: src/Text.cpp include/Flexium/Text.hpp \
+ include/Flexium/Window.hpp include/Flexium/Console.hpp \
+ include/Flexium/Flexium.hpp include/Flexium/Vector.hpp \
+ include/Flexium/Object.hpp include/Flexium/pugixml.hpp \
+ include/Flexium/pugiconfig.hpp

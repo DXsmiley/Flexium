@@ -1,1 +1,1 @@
-obj/Vector.o: src/Vector.cpp include/Vector.hpp
+obj/Vector.o: src/Vector.cpp include/Flexium/Vector.hpp

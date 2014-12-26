@@ -8,8 +8,10 @@
 #include <iostream>
 #include <fstream>
 
-#include <World.hpp>
-#include <Object.hpp>
+#include <Flexium/World.hpp>
+#include <Flexium/Object.hpp>
+
+using namespace flx;
 
 class ObjectOne : public Object {
 

@@ -1,9 +1,13 @@
-#include "Event.hpp"
+#include <Flexium/Event.hpp>
 
-World * Event::getWorld() {
-	return world;
-}
+namespace flx {
 
-void Event::setWorld(World * w) {
-	world = w;
+	World * Event::getWorld() {
+		return world;
+	}
+
+	void Event::setWorld(World * w) {
+		world = w;
+	}
+
 }

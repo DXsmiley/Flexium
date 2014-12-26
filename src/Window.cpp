@@ -1,81 +1,85 @@
-#include "Window.hpp"
-#include "Flexium.hpp"
+#include <Flexium/Window.hpp>
+#include <Flexium/Flexium.hpp>
 
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-namespace Window {
+namespace flx {
 
-	double view_zoom;
-	double view_width;
-	double view_height;
+	namespace Window {
 
-	sf::RenderWindow * window;
+		double view_zoom;
+		double view_width;
+		double view_height;
 
-	WindowSettings WindowSettings::fullscreenMode(const std::string title = "Title") {
-		WindowSettings s;
-		sf::VideoMode d = sf::VideoMode::getDesktopMode();
-		s.width = d.width;
-		s.height = d.height;
-		s.fullscreen = true;
-		s.title = title;
-		s.framelimit = 60;
-		return s;
-	}
+		::sf::RenderWindow * window;
 
-	sf::RenderWindow * getHandle() {
-		return window;
-	}
+		WindowSettings WindowSettings::fullscreenMode(const std::string title = "Title") {
+			WindowSettings s;
+			::sf::VideoMode d = ::sf::VideoMode::getDesktopMode();
+			s.width = d.width;
+			s.height = d.height;
+			s.fullscreen = true;
+			s.title = title;
+			s.framelimit = 60;
+			return s;
+		}
 
-	void initiate(WindowSettings s) {
-		/*view_width = s.width;
-		view_height = s.height;*/
-		window = new sf::RenderWindow(sf::VideoMode(s.width, s.height), s.title, s.fullscreen ? sf::Style::Fullscreen : sf::Style::Close | sf::Style::Titlebar);
-		window -> setVerticalSyncEnabled(true);
-		if (s.framelimit != 0) window -> setFramerateLimit(s.framelimit);
-	}
+		::sf::RenderWindow * getHandle() {
+			return window;
+		}
 
-	void close() {
-		window -> close();
-	}
+		void initiate(WindowSettings s) {
+			/*view_width = s.width;
+			view_height = s.height;*/
+			window = new ::sf::RenderWindow(::sf::VideoMode(s.width, s.height), s.title, s.fullscreen ? ::sf::Style::Fullscreen : ::sf::Style::Close | ::sf::Style::Titlebar);
+			window -> setVerticalSyncEnabled(true);
+			if (s.framelimit != 0) window -> setFramerateLimit(s.framelimit);
+		}
 
-	void setFrameRateLimit(int rate) {
-		window -> setFramerateLimit(rate);
-	}
+		void close() {
+			window -> close();
+		}
 
-	unsigned int getWidth() {
-		return window -> getSize().x;
-	}
+		void setFrameRateLimit(int rate) {
+			window -> setFramerateLimit(rate);
+		}
 
-	unsigned int getHeight() {
-		return window -> getSize().y;
-	}
+		unsigned int getWidth() {
+			return window -> getSize().x;
+		}
 
-	void viewSetPosition(double x, double y) {
-		sf::View view = window -> getView();
-		view.setSize(sf::Vector2f(window -> getSize()));
-		view.zoom(view_zoom);
-		view.setCenter(x, y);
-		window -> setView(view);
-	}
+		unsigned int getHeight() {
+			return window -> getSize().y;
+		}
 
-	void viewSetPosition(Vector v) {
-		viewSetPosition(v.x, v.y);
-	}
+		void viewSetPosition(double x, double y) {
+			::sf::View view = window -> getView();
+			view.setSize(::sf::Vector2f(window -> getSize()));
+			view.zoom(view_zoom);
+			view.setCenter(x, y);
+			window -> setView(view);
+		}
 
-	void viewSetPositionZero() {
-		sf::Vector2f s = window -> getView().getSize();
-		viewSetPosition(s.x / 2, s.y / 2);
-	}
+		void viewSetPosition(Vector v) {
+			viewSetPosition(v.x, v.y);
+		}
 
-	Vector viewGetCentre() {
-		sf::Vector2f s = window -> getView().getCenter();
-		return Vector(s.x, s.y);
-	}
+		void viewSetPositionZero() {
+			::sf::Vector2f s = window -> getView().getSize();
+			viewSetPosition(s.x / 2, s.y / 2);
+		}
 
-	void viewSetZoom(double f) {
-		view_zoom = f;
+		Vector viewGetCentre() {
+			::sf::Vector2f s = window -> getView().getCenter();
+			return Vector(s.x, s.y);
+		}
+
+		void viewSetZoom(double f) {
+			view_zoom = f;
+		}
+
 	}
 
 }

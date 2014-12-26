@@ -1,4 +1,5 @@
-obj/Sprite.o: src/Sprite.cpp include/Sprite.hpp include/Window.hpp \
- include/Window.hpp include/Flexium.hpp include/Vector.hpp \
- include/Console.hpp include/Flexium.hpp include/Object.hpp \
- include/pugixml.hpp include/pugiconfig.hpp
+obj/Sprite.o: src/Sprite.cpp include/Flexium/Sprite.hpp \
+ include/Flexium/Window.hpp include/Flexium/Flexium.hpp \
+ include/Flexium/Vector.hpp include/Flexium/Console.hpp \
+ include/Flexium/Object.hpp include/Flexium/pugixml.hpp \
+ include/Flexium/pugiconfig.hpp

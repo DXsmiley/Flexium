@@ -1,4 +1,4 @@
-obj/Flexium.o: src/Flexium.cpp include/Flexium.hpp include/Vector.hpp \
- include/Console.hpp include/Flexium.hpp include/Object.hpp \
- include/Sprite.hpp include/Window.hpp include/Input.hpp \
- include/Window.hpp
+obj/Flexium.o: src/Flexium.cpp include/Flexium/Flexium.hpp \
+ include/Flexium/Vector.hpp include/Flexium/Console.hpp \
+ include/Flexium/Object.hpp include/Flexium/Sprite.hpp \
+ include/Flexium/Window.hpp include/Flexium/Input.hpp

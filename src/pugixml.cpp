@@ -1,3 +1,5 @@
+// Maybe I should move this somewhere else, or make it an external requirement.
+
 /**
  * pugixml parser - version 1.4
  * --------------------------------------------------------
@@ -14,7 +16,7 @@
 #ifndef SOURCE_PUGIXML_CPP
 #define SOURCE_PUGIXML_CPP
 
-#include "pugixml.hpp"
+#include <Flexium/pugixml.hpp>
 
 #include <stdlib.h>
 #include <stdio.h>

@@ -1,3 +1,4 @@
-obj/Console.o: src/Console.cpp include/Console.hpp include/Flexium.hpp \
- include/Vector.hpp include/Object.hpp include/Text.hpp \
- include/Window.hpp include/Input.hpp
+obj/Console.o: src/Console.cpp include/Flexium/Console.hpp \
+ include/Flexium/Flexium.hpp include/Flexium/Vector.hpp \
+ include/Flexium/Object.hpp include/Flexium/Text.hpp \
+ include/Flexium/Window.hpp include/Flexium/Input.hpp

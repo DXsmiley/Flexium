@@ -1,5 +1,7 @@
-obj/FlexiumUtility.o: src/FlexiumUtility.cpp include/FlexiumUtility.hpp \
- include/Flexium.hpp include/Vector.hpp include/Object.hpp \
- include/Event.hpp include/Timer.hpp include/Console.hpp \
- include/Input.hpp include/Sprite.hpp include/Window.hpp \
- include/pugixml.hpp include/pugiconfig.hpp
+obj/FlexiumUtility.o: src/FlexiumUtility.cpp \
+ include/Flexium/FlexiumUtility.hpp include/Flexium/Flexium.hpp \
+ include/Flexium/Vector.hpp include/Flexium/Object.hpp \
+ include/Flexium/Event.hpp include/Flexium/Timer.hpp \
+ include/Flexium/Console.hpp include/Flexium/Input.hpp \
+ include/Flexium/Sprite.hpp include/Flexium/Window.hpp \
+ include/Flexium/pugixml.hpp include/Flexium/pugiconfig.hpp

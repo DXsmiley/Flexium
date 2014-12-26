@@ -1,3 +1,4 @@
-obj/Audio.o: src/Audio.cpp include/Audio.hpp include/Console.hpp \
- include/Flexium.hpp include/Vector.hpp include/Object.hpp \
- include/pugixml.hpp include/pugiconfig.hpp
+obj/Audio.o: src/Audio.cpp include/Flexium/Audio.hpp \
+ include/Flexium/Console.hpp include/Flexium/Flexium.hpp \
+ include/Flexium/Vector.hpp include/Flexium/Object.hpp \
+ include/Flexium/pugixml.hpp include/Flexium/pugiconfig.hpp
