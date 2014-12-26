@@ -54,6 +54,15 @@ namespace flx {
 		buffer.cig = c;
 	}
 
+	int ConsoleStream::MyStreamBuffer::sync() {
+		//ConsoleInGame * cig = world -> instanceGetSingle<ConsoleInGame*>();
+		if (cig != NULL) cig -> addLine(prefix + str());
+		std::cout << prefix << str();
+		str("");
+		std::cout.flush();
+		return 0;
+	}
+
 	void ConsoleInGame::addLine(std::string s) {
 		//std::cout << "added Line: " << s << std::endl;
 		lines.push_back(s);

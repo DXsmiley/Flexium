@@ -5,9 +5,7 @@
 
 */
 
-#include <iostream>
-#include <fstream>
-
+#include <Flexium/ConsoleMinimal.hpp>
 #include <Flexium/World.hpp>
 #include <Flexium/Object.hpp>
 
@@ -24,7 +22,7 @@ class ObjectOne : public Object {
 		ObjectOne(std::string s): name(s) {};
 
 		virtual void sayName() {
-			std::cout << name << std::endl;
+			Console::Log << name << std::endl;
 		}
 
 		virtual ~ObjectOne() {};
@@ -38,7 +36,7 @@ class ObjectTwo : public ObjectOne {
 		ObjectTwo(std::string s): ObjectOne(s) {};
 
 		virtual void sayName() {
-			std::cout << name << std::endl;
+			Console::Log << name << std::endl;
 			// Do something sneaky!
 			getWorld() -> instanceAdd(new ObjectOne("Ben"));
 		}
