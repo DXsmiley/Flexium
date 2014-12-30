@@ -60,6 +60,7 @@ class ObjectDemo : public Object {
 int main() {
 
 	Window::WindowSettings ws;
+	ws.title = "Flexium Demo";
 	Window::initiate(ws);
 	Window::setFrameRateLimit(60);
 

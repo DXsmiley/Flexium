@@ -628,28 +628,68 @@
 	},
 	"expanded_folders":
 	[
-		"/J/Flexium"
+		"/Volumes/SAMUS/Flexium"
 	],
 	"file_history":
 	[
+		"/J/pygmy_minimal.cpp",
 		"/J/Flexium/makefile",
+		"/J/Flexium/TODO.md",
+		"/J/Flexium/README.md",
+		"/J/Flexium/src/Console.cpp",
+		"/J/Flexium/include/Flexium/Console.hpp",
+		"/J/Flexium/.gitignore",
 		"/J/Flexium/tests/RemoveObjectWhileIterating.cpp",
 		"/J/Flexium/tests/AddObjectWhileIterating.cpp",
-		"/J/Flexium/lib/Info.txt",
+		"/J/Flexium/include/Flexium/ConsoleMinimal.hpp",
+		"/J/Flexium/.gitattributes",
+		"/J/Flexium/include/Flexium/Random.hpp",
+		"/J/Flexium/include/Flexium/ConsoleExt.hpp",
+		"/J/Flexium/utility/base_code/spritesheet.xml",
+		"/J/Flexium/utility/base_code/soundsheet.xml",
+		"/J/Flexium/demo/font.ttf",
+		"/J/Flexium/include/Flexium/TileMap.hpp",
+		"/J/Flexium/include/Flexium/Vector.hpp",
+		"/J/Flexium/demo/Demo.cpp",
+		"/J/Flexium/src/World.cpp",
+		"/J/Flexium/src/Vector.cpp",
+		"/J/Flexium/include/Flexium/Timer.hpp",
+		"/J/Flexium/src/Timer.cpp",
+		"/J/Flexium/src/TileMap.cpp",
+		"/J/Flexium/include/Flexium/Window.hpp",
+		"/J/Flexium/src/Random.cpp",
+		"/J/Flexium/src/Sprite.cpp",
+		"/J/Flexium/src/Text.cpp",
+		"/J/Flexium/src/TiledMapLoader.cpp",
+		"/J/Flexium/include/Flexium/World.hpp",
+		"/J/Flexium/include/Flexium/TiledMapLoader.hpp",
+		"/J/Flexium/include/Flexium/Text.hpp",
+		"/J/Flexium/src/Object.cpp",
+		"/J/Flexium/include/Flexium/Object.hpp",
+		"/J/Flexium/demo/spritesheet.xml",
+		"/J/Flexium/include/Flexium/Sprite.hpp",
+		"/J/Flexium/src/FlexiumUtility.cpp",
 		"/J/Flexium/src/Input.cpp",
-		"/J/Flexium/README.md",
+		"/J/Flexium/src/pugixml.cpp",
+		"/J/Flexium/include/Flexium/Input.hpp",
+		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
+		"/J/Flexium/src/Event.cpp",
+		"/J/Flexium/include/Flexium/Event.hpp",
+		"/J/Flexium/src/Audio.cpp",
+		"/J/Flexium/include/Flexium/Flexium.hpp",
+		"/J/Flexium/src/Flexium.cpp",
+		"/J/Flexium/include/Flexium/Audio.hpp",
+		"/J/Flexium/Flexium.sublime-project",
+		"/J/Flexium/src/Window.cpp",
+		"/J/Flexium/include/Audio.hpp",
+		"/J/Flexium/lib/Info.txt",
 		"/J/Flexium/utility/base_code/Readme.txt",
 		"/J/Flexium/utility/resource/Main.cpp",
 		"/J/Flexium/Doxyfile",
-		"/J/Flexium/Flexium.sublime-project",
-		"/J/Flexium/src/FlexiumUtility.cpp",
 		"/J/Flexium/utility/resource/sound.wav",
 		"/J/Flexium/utility/resource/fontsheet.xml",
 		"/J/Flexium/include/Random.hpp",
-		"/J/Flexium/demo/spritesheet.xml",
-		"/J/Flexium/demo/Demo.cpp",
 		"/J/Flexium/include/Sprite.hpp",
-		"/J/Flexium/src/Sprite.cpp",
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/SpkGraphTools.pas",
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/SpkExpandPanel.pas",
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/SpkAnimator.pas",
@@ -658,29 +698,19 @@
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/SpkVCL.dpk",
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/spkvcl.lpk",
 		"/J/Flexium/test/Main.cpp",
-		"/J/Flexium/src/Audio.cpp",
 		"/J/Flexium/demo/fontsheet.xml",
 		"/J/Flexium/demo/soundsheet.xml",
-		"/J/Flexium/src/Text.cpp",
-		"/J/Flexium/include/Audio.hpp",
-		"/J/Flexium/src/TileMap.cpp",
 		"/J/Flexium/demo/font_terms_of_use.txt",
 		"/J/Flexium/include/Text.hpp",
 		"/J/Flexium/demo/sound.wav",
 		"/J/Flexium/test/spritesheet.xml",
-		"/J/Flexium/src/Flexium.cpp",
 		"/J/Flexium/test/makefile",
 		"/J/Flexium/utility/resource/makefile",
-		"/J/Flexium/src/Window.cpp",
 		"/J/Flexium/include/Window.hpp",
-		"/J/Flexium/src/Console.cpp",
-		"/J/Flexium/src/Object.cpp",
 		"/J/TheMountain/TheMountain.cpp",
 		"/J/Flexium/include/Object.hpp",
 		"/J/Flexium/include/Console.hpp",
 		"/J/Flexium/include/TiledMapLoader.hpp",
-		"/J/Flexium/src/TiledMapLoader.cpp",
-		"/J/Flexium/src/World.cpp",
 		"/J/Flexium/obj/Window.d",
 		"/J/Flexium/backup/Window.cpp",
 		"/J/Flexium/backup/Window.hpp",
@@ -729,37 +759,7 @@
 		"/J/Flexium/Window.cpp",
 		"/J/Flexium/TheMountain.cpp",
 		"/J/Flexium/Aligence.hpp",
-		"/J/Flexium/AbilityDash.cpp",
-		"/J/Flexium/Sprite.hpp",
-		"/J/Flexium/Sound.hpp",
-		"/J/Flexium/Sound.cpp",
-		"/J/Flexium/Sprite.cpp",
-		"/J/Flexium/Spawner.hpp",
-		"/J/Flexium/MapLoadingRules.cpp",
-		"/J/Flexium/Text.cpp",
-		"/J/Flexium/MapLoadingRules.hpp",
-		"/J/Flexium/TiledMapLoader.cpp",
-		"/J/Flexium/TiledMapLoader.h",
-		"/J/Flexium/Title.cpp",
-		"/J/Flexium/MapEditorObject.cpp",
-		"/J/Flexium/Flexium.hpp",
-		"/J/Flexium/Flexium.cpp",
-		"/J/Flexium/Console.cpp",
-		"/J/Flexium/TileMap.cpp",
-		"/J/Flexium/MapEditor.cpp",
-		"/J/Flexium/Window.hpp",
-		"/J/Flexium/fonts/console.otf",
-		"/J/Flexium/HUD.cpp",
-		"/J/Flexium/ProjectileSimple.cpp",
-		"/J/Flexium/Ability.hpp",
-		"/J/Flexium/Ability.cpp",
-		"/J/Flexium/AbilityDash.hpp",
-		"/J/Flexium/ProjectileSimple.hpp",
-		"/J/Flexium/PlayerSpawnPoint.hpp",
-		"/J/Flexium/PickupAbility.hpp",
-		"/J/Flexium/maps/garden.tmx",
-		"/J/Flexium/SpawnGround.cpp",
-		"/J/Flexium/HUD.hpp"
+		"/J/Flexium/AbilityDash.cpp"
 	],
 	"find":
 	{
@@ -779,6 +779,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"o",
+			"sf::",
 			"scroll",
 			"			\n",
 			"\n			",
@@ -852,6 +854,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"::sf::",
 			"case",
 			"keyReleased",
 			"keyPressed",
@@ -945,7 +948,7 @@
 	"project": "Flexium.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -954,52 +957,160 @@
 		"selected_items":
 		[
 			[
+				"git",
+				".gitignore"
+			],
+			[
+				"rem",
+				"tests\\RemoveObjectWhileIterating.cpp"
+			],
+			[
+				"consol",
+				"src\\Console.cpp"
+			],
+			[
 				"demo",
 				"demo\\Demo.cpp"
 			],
 			[
-				"sprite",
-				"demo\\spritesheet.xml"
+				"world",
+				"src\\World.cpp"
 			],
 			[
-				"spir",
-				"include\\Sprite.hpp"
+				"vector",
+				"include\\Flexium\\Vector.hpp"
 			],
 			[
-				"audio",
-				"src\\Audio.cpp"
+				"vec",
+				"src\\Vector.cpp"
 			],
 			[
-				"sound",
-				"demo\\soundsheet.xml"
+				"timer",
+				"include\\Flexium\\Timer.hpp"
+			],
+			[
+				"tm",
+				"include\\Flexium\\TileMap.hpp"
+			],
+			[
+				"tilemap",
+				"include\\Flexium\\TileMap.hpp"
+			],
+			[
+				"tml",
+				"include\\Flexium\\TiledMapLoader.hpp"
+			],
+			[
+				"tex",
+				"include\\Flexium\\Text.hpp"
 			],
 			[
 				"text",
 				"src\\Text.cpp"
 			],
 			[
-				"font",
-				"demo\\fontsheet.xml"
+				"sprite",
+				"src\\Sprite.cpp"
+			],
+			[
+				"ra",
+				"include\\Flexium\\Random.hpp"
+			],
+			[
+				"random",
+				"src\\Random.cpp"
+			],
+			[
+				"pug",
+				"src\\pugixml.cpp"
+			],
+			[
+				"object",
+				"src\\Object.cpp"
+			],
+			[
+				"input",
+				"include\\Flexium\\Input.hpp"
+			],
+			[
+				"inpu",
+				"src\\Input.cpp"
+			],
+			[
+				"fu",
+				"include\\Flexium\\FlexiumUtility.hpp"
+			],
+			[
+				"f",
+				"src\\FlexiumUtility.cpp"
+			],
+			[
+				"fy",
+				"src\\FlexiumUtility.cpp"
+			],
+			[
+				"flex",
+				"src\\Flexium.cpp"
+			],
+			[
+				"flexiu",
+				"include\\Flexium\\Flexium.hpp"
+			],
+			[
+				"eve",
+				"include\\Flexium\\Event.hpp"
+			],
+			[
+				"event",
+				"src\\Event.cpp"
+			],
+			[
+				"window",
+				"include\\Flexium\\Window.hpp"
+			],
+			[
+				"o",
+				"include\\Flexium\\Object.hpp"
+			],
+			[
+				"console",
+				"src\\Console.cpp"
 			],
 			[
 				"au",
-				"src\\Audio.cpp"
+				"include\\Flexium\\Audio.hpp"
 			],
 			[
-				"",
-				"include\\Text.hpp"
+				"audio",
+				"src\\Audio.cpp"
 			],
 			[
 				"make",
 				"makefile"
 			],
 			[
-				"window",
+				"win",
+				"include\\Flexium\\Window.hpp"
+			],
+			[
+				"windo",
 				"src\\Window.cpp"
 			],
 			[
-				"object",
-				"src\\Object.cpp"
+				"spir",
+				"include\\Sprite.hpp"
+			],
+			[
+				"sound",
+				"demo\\soundsheet.xml"
+			],
+			[
+				"font",
+				"demo\\fontsheet.xml"
+			],
+			[
+				"",
+				"include\\Text.hpp"
 			],
 			[
 				"conole",
@@ -1010,32 +1121,8 @@
 				"src\\Sprite.cpp"
 			],
 			[
-				"win",
-				"src\\Window.cpp"
-			],
-			[
-				"world",
-				"src\\World.cpp"
-			],
-			[
 				"in",
 				"src\\Input.cpp"
-			],
-			[
-				"fu",
-				"src\\FlexiumUtility.cpp"
-			],
-			[
-				"tml",
-				"include\\TiledMapLoader.hpp"
-			],
-			[
-				"tm",
-				"src\\TileMap.cpp"
-			],
-			[
-				"flex",
-				"src\\Flexium.cpp"
 			],
 			[
 				"level",
@@ -1048,10 +1135,6 @@
 			[
 				"fl",
 				"Flexium.h"
-			],
-			[
-				"console",
-				"Console.hpp"
 			],
 			[
 				"ps",
@@ -1080,10 +1163,6 @@
 			[
 				"ss",
 				"spritesheet.xml"
-			],
-			[
-				"windo",
-				"Window.hpp"
 			],
 			[
 				"pa",
@@ -1138,14 +1217,6 @@
 				"Spawner.hpp"
 			],
 			[
-				"vector",
-				"Vector.hpp"
-			],
-			[
-				"random",
-				"Random.cpp"
-			],
-			[
 				"th",
 				"TheMountain.cpp"
 			],
@@ -1160,10 +1231,6 @@
 			[
 				"themou",
 				"TheMountain.cpp"
-			],
-			[
-				"input",
-				"Input.cpp"
 			],
 			[
 				"me",
@@ -1196,10 +1263,6 @@
 			[
 				"fle",
 				"Flexium.h"
-			],
-			[
-				"inpu",
-				"Input.hpp"
 			],
 			[
 				"fd",
@@ -1404,66 +1467,6 @@
 			[
 				".tmx",
 				"maps\\test.tmx"
-			],
-			[
-				"flex.cpp",
-				"Flexium.cpp"
-			],
-			[
-				"flexiumutil.cpp",
-				"FlexiumUtility.cpp"
-			],
-			[
-				"fl.cpp",
-				"Flexium.cpp"
-			],
-			[
-				"flex.h",
-				"Flexium.h"
-			],
-			[
-				"ser",
-				"C:\\Users\\DXsmiley\\Code\\Python\\bomberman\\server.py"
-			],
-			[
-				"cp.cpp",
-				"TheMountain\\ComponentsPhysical.cpp"
-			],
-			[
-				"tm.cpp",
-				"TheMountain\\TheMountain.cpp"
-			],
-			[
-				"compph",
-				"TheMountain\\ComponentsPhysical.h"
-			],
-			[
-				"cp.h",
-				"TheMountain\\ComponentsPhysical.h"
-			],
-			[
-				"cg.h",
-				"TheMountain\\ComponentsGraphics.h"
-			],
-			[
-				"sm",
-				"TheMountain\\SystemMotion.h"
-			],
-			[
-				"ssdk",
-				"Utility\\SystemShutdownKey.h"
-			],
-			[
-				"stan/com",
-				"Standard\\Components.h"
-			],
-			[
-				"sd",
-				"TheMountain\\SystemDraw.cpp"
-			],
-			[
-				"m/sd",
-				"TheMountain\\SystemDraw.cpp"
 			]
 		],
 		"width": 0.0

@@ -27,6 +27,9 @@
 *.out
 *.app
 
+# Dependency Files
+*.d
+
 # =========================
 # Operating System Files
 # =========================
@@ -74,6 +77,11 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# Other stuff
+# =========================
+# Editor Specific Files
+# =========================
+
+# Sublime Text
+# =========================
+*.sublime-project
 *.sublime-workspace
-*.d
