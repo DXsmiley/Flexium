@@ -1,16 +1,15 @@
-#include <World.hpp>
-#include <Object.hpp>
-#include <Window.hpp>
-#include <Sprite.hpp>
-#include <Input.hpp>
-#include <Audio.hpp>
-#include <Text.hpp>
+#include <Flexium/World.hpp>
+#include <Flexium/Object.hpp>
+#include <Flexium/Window.hpp>
+#include <Flexium/Sprite.hpp>
+#include <Flexium/Input.hpp>
+#include <Flexium/Audio.hpp>
+#include <Flexium/Text.hpp>
 
 int main() {
 
 	Window::WindowSettings ws;
 	Window::initiate(ws);
-	Window::setFrameRateLimit(60);
 
 	Sprite::loadMapping("spritesheet.xml");
 	Audio::loadMapping("soundsheet.xml");

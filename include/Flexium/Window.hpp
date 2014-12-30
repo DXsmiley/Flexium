@@ -20,8 +20,9 @@ namespace flx {
 			bool fullscreen;
 			std::string title;
 			unsigned int framelimit;
+			bool allow_resize;
 
-			WindowSettings(): width(800), height(640), fullscreen(false), title("Title"), framelimit(60) {};
+			WindowSettings(): width(800), height(640), fullscreen(false), title("Title"), framelimit(60), allow_resize(false) {};
 
 			static WindowSettings fullscreenMode(const std::string);
 

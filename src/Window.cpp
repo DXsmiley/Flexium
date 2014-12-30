@@ -9,9 +9,9 @@ namespace flx {
 
 	namespace Window {
 
-		double view_zoom;
-		double view_width;
 		double view_height;
+		double view_width;
+		double view_zoom;
 
 		::sf::RenderWindow * window;
 
@@ -23,6 +23,7 @@ namespace flx {
 			s.fullscreen = true;
 			s.title = title;
 			s.framelimit = 60;
+			s.allow_resize = false;
 			return s;
 		}
 
@@ -33,7 +34,16 @@ namespace flx {
 		void initiate(WindowSettings s) {
 			/*view_width = s.width;
 			view_height = s.height;*/
-			window = new ::sf::RenderWindow(::sf::VideoMode(s.width, s.height), s.title, s.fullscreen ? ::sf::Style::Fullscreen : ::sf::Style::Close | ::sf::Style::Titlebar);
+			unsigned int style = ::sf::Style::None;
+			if (s.fullscreen) {
+				style |= ::sf::Style::Fullscreen;
+			} else {
+				 style |= ::sf::Style::Close | ::sf::Style::Titlebar;
+				 if (s.allow_resize) {
+				 	style |= ::sf::Style::Resize;
+				 }
+			}
+			window = new ::sf::RenderWindow(::sf::VideoMode(s.width, s.height), s.title, style);
 			window -> setVerticalSyncEnabled(true);
 			if (s.framelimit != 0) window -> setFramerateLimit(s.framelimit);
 		}

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"ticks",
+				"ticks"
+			],
+			[
+				"td",
+				"ticks_delay"
+			],
+			[
 				"Obj",
 				"ObjectTwo"
 			],
@@ -360,20 +368,12 @@
 				"tex_height"
 			],
 			[
-				"td",
-				"tex_dim"
-			],
-			[
 				"tp",
 				"tex_pos"
 			],
 			[
 				"Ev",
 				"EventStartup"
-			],
-			[
-				"ticks",
-				"ticks_count"
 			],
 			[
 				"ease",
@@ -628,21 +628,41 @@
 	},
 	"expanded_folders":
 	[
-		"/Volumes/SAMUS/Flexium"
+		"/J/Flexium",
+		"/J/Flexium/tests",
+		"/J/Flexium/utility",
+		"/J/Flexium/utility/base_code"
 	],
 	"file_history":
 	[
-		"/J/pygmy_minimal.cpp",
+		"/J/Flexium/tests/spritesheet.xml",
+		"/J/Flexium/src/Window.cpp",
+		"/J/Flexium/include/Flexium/Window.hpp",
+		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
+		"/J/Flexium/src/FlexiumUtility.cpp",
+		"/J/Flexium/src/Sprite.cpp",
+		"/J/Flexium/tests/WindowScaling.cpp",
+		"/J/Flexium/demo/spritesheet.xml",
+		"/J/Flexium/include/Flexium/Sprite.hpp",
+		"/J/Flexium/include/Flexium/Object.hpp",
+		"/J/Flexium/src/Object.cpp",
+		"/J/Flexium/utility/base_code/Main.cpp",
+		"/J/Flexium/include/Flexium/ConsoleMinimal.hpp",
+		"/J/Flexium/src/Console.cpp",
+		"/J/Flexium/utility/base_code/Readme.txt",
+		"/J/Flexium/src/TiledMapLoader.cpp",
+		"/J/Flexium/.gitignore",
+		"/J/Flexium/.gitattributes",
+		"/J/Flexium/Flexium.sublime-project",
 		"/J/Flexium/makefile",
+		"/J/Flexium/obj/Info.md",
+		"/J/Flexium/obj/Audio.d",
+		"/J/pygmy_minimal.cpp",
 		"/J/Flexium/TODO.md",
 		"/J/Flexium/README.md",
-		"/J/Flexium/src/Console.cpp",
 		"/J/Flexium/include/Flexium/Console.hpp",
-		"/J/Flexium/.gitignore",
 		"/J/Flexium/tests/RemoveObjectWhileIterating.cpp",
 		"/J/Flexium/tests/AddObjectWhileIterating.cpp",
-		"/J/Flexium/include/Flexium/ConsoleMinimal.hpp",
-		"/J/Flexium/.gitattributes",
 		"/J/Flexium/include/Flexium/Random.hpp",
 		"/J/Flexium/include/Flexium/ConsoleExt.hpp",
 		"/J/Flexium/utility/base_code/spritesheet.xml",
@@ -656,34 +676,22 @@
 		"/J/Flexium/include/Flexium/Timer.hpp",
 		"/J/Flexium/src/Timer.cpp",
 		"/J/Flexium/src/TileMap.cpp",
-		"/J/Flexium/include/Flexium/Window.hpp",
 		"/J/Flexium/src/Random.cpp",
-		"/J/Flexium/src/Sprite.cpp",
 		"/J/Flexium/src/Text.cpp",
-		"/J/Flexium/src/TiledMapLoader.cpp",
 		"/J/Flexium/include/Flexium/World.hpp",
 		"/J/Flexium/include/Flexium/TiledMapLoader.hpp",
 		"/J/Flexium/include/Flexium/Text.hpp",
-		"/J/Flexium/src/Object.cpp",
-		"/J/Flexium/include/Flexium/Object.hpp",
-		"/J/Flexium/demo/spritesheet.xml",
-		"/J/Flexium/include/Flexium/Sprite.hpp",
-		"/J/Flexium/src/FlexiumUtility.cpp",
 		"/J/Flexium/src/Input.cpp",
 		"/J/Flexium/src/pugixml.cpp",
 		"/J/Flexium/include/Flexium/Input.hpp",
-		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
 		"/J/Flexium/src/Event.cpp",
 		"/J/Flexium/include/Flexium/Event.hpp",
 		"/J/Flexium/src/Audio.cpp",
 		"/J/Flexium/include/Flexium/Flexium.hpp",
 		"/J/Flexium/src/Flexium.cpp",
 		"/J/Flexium/include/Flexium/Audio.hpp",
-		"/J/Flexium/Flexium.sublime-project",
-		"/J/Flexium/src/Window.cpp",
 		"/J/Flexium/include/Audio.hpp",
 		"/J/Flexium/lib/Info.txt",
-		"/J/Flexium/utility/base_code/Readme.txt",
 		"/J/Flexium/utility/resource/Main.cpp",
 		"/J/Flexium/Doxyfile",
 		"/J/Flexium/utility/resource/sound.wav",
@@ -754,12 +762,7 @@
 		"/J/Flexium/EventSpawnPlayer.cpp",
 		"/J/Flexium/EnemySimple.cpp",
 		"/J/Flexium/EventSpawnPlayer.hpp",
-		"/J/Flexium/LevelChangeRegion.hpp",
-		"/J/Flexium/LandMobile.hpp",
-		"/J/Flexium/Window.cpp",
-		"/J/Flexium/TheMountain.cpp",
-		"/J/Flexium/Aligence.hpp",
-		"/J/Flexium/AbilityDash.cpp"
+		"/J/Flexium/LevelChangeRegion.hpp"
 	],
 	"find":
 	{
@@ -948,7 +951,7 @@
 	"project": "Flexium.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -956,6 +959,30 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"sprite",
+				"src\\Sprite.cpp"
+			],
+			[
+				"window",
+				"include\\Flexium\\Window.hpp"
+			],
+			[
+				"object",
+				"include\\Flexium\\Object.hpp"
+			],
+			[
+				"fu",
+				"include\\Flexium\\FlexiumUtility.hpp"
+			],
+			[
+				"windo",
+				"src\\Window.cpp"
+			],
+			[
+				"win",
+				"tests\\WindowScaling.cpp"
+			],
 			[
 				"git",
 				".gitignore"
@@ -1009,10 +1036,6 @@
 				"src\\Text.cpp"
 			],
 			[
-				"sprite",
-				"src\\Sprite.cpp"
-			],
-			[
 				"ra",
 				"include\\Flexium\\Random.hpp"
 			],
@@ -1025,20 +1048,12 @@
 				"src\\pugixml.cpp"
 			],
 			[
-				"object",
-				"src\\Object.cpp"
-			],
-			[
 				"input",
 				"include\\Flexium\\Input.hpp"
 			],
 			[
 				"inpu",
 				"src\\Input.cpp"
-			],
-			[
-				"fu",
-				"include\\Flexium\\FlexiumUtility.hpp"
 			],
 			[
 				"f",
@@ -1065,10 +1080,6 @@
 				"src\\Event.cpp"
 			],
 			[
-				"window",
-				"include\\Flexium\\Window.hpp"
-			],
-			[
 				"o",
 				"include\\Flexium\\Object.hpp"
 			],
@@ -1087,14 +1098,6 @@
 			[
 				"make",
 				"makefile"
-			],
-			[
-				"win",
-				"include\\Flexium\\Window.hpp"
-			],
-			[
-				"windo",
-				"src\\Window.cpp"
 			],
 			[
 				"spir",
@@ -1476,6 +1479,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"Flex",
+				"J:\\Flexium\\Flexium.sublime-project"
+			],
 			[
 				"",
 				"J:\\TheMountain\\TheMountain.sublime-project"

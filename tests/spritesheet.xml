@@ -1,0 +1,7 @@
+<spritesheet format="2">
+
+	<sprite name="image">
+		<frame source="image.png" />
+	</sprite>
+
+</spritesheet>

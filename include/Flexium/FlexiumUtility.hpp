@@ -67,20 +67,21 @@ namespace flx {
 
 	};
 
-	/*
-	class ButtonSprite: public Button {
+	class Camera: public Object {
+
+		protected:
+
+			double zoom;
 
 		public:
 
-			virtual void onCreate();
+			Camera();
+			double& getZoom();
+			void setZoom(double z);
 			virtual void onUpdate();
-
-			virtual void onClick();
-			virtual void onHover();
-			virtual void onLeave();
+			virtual ~Camera() {};
 
 	};
-	*/
 
 	class Tweener: public Object {
 
@@ -90,6 +91,12 @@ namespace flx {
 				EASE_IN,
 				EASE_OUT,
 				EASE_BOTH
+			};
+
+			enum Loop {
+				LOOP_NONE,
+				LOOP_NORMAL,
+				LOOP_REVERSE
 			};
 
 			class Algorithm {
@@ -125,6 +132,7 @@ namespace flx {
 			double ticks_delay;
 			double ticks_count;
 			Type type;
+			Loop loop;
 			Algorithm * algorithm;
 
 			double ease_in(double);
@@ -132,7 +140,10 @@ namespace flx {
 
 		public:
 
+			Tweener(double * value, double start, double end, double length, Type type, Algorithm * algorithm);
+			Tweener(double * value, double start, double end, double length, Type type, Loop loop, Algorithm * algorithm);
 			Tweener(double * value, double start, double end, double delay, double length, Type type, Algorithm * algorithm);
+			Tweener(double * value, double start, double end, double delay, double length, Type type, Loop loop, Algorithm * algorithm);
 
 			virtual void onUpdate();
 
