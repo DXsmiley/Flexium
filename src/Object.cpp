@@ -40,6 +40,14 @@ namespace flx {
 		persistent = p;
 	}
 
+	bool Object::isMeta() {
+		return meta;
+	}
+
+	void Object::setMeta(bool m) {
+		meta = m;
+	}
+
 	World * Object::getWorld() const {
 		return my_world;
 	}

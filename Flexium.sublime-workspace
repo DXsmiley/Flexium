@@ -4,12 +4,28 @@
 		"selected_items":
 		[
 			[
-				"ticks",
-				"ticks"
+				"cmdLo",
+				"cmdLogInfo"
+			],
+			[
+				"trigg",
+				"trigger_draw"
+			],
+			[
+				"CI",
+				"CommandInfo"
 			],
 			[
 				"td",
-				"ticks_delay"
+				"trigger_draw"
+			],
+			[
+				"mouse",
+				"mouseX"
+			],
+			[
+				"ticks",
+				"ticks"
 			],
 			[
 				"Obj",
@@ -498,22 +514,6 @@
 			[
 				"MGUI",
 				"MessageGUIButtonPressed"
-			],
-			[
-				"Mess",
-				"MessageId"
-			],
-			[
-				"Mge",
-				"Message"
-			],
-			[
-				"enti",
-				"entities"
-			],
-			[
-				"Syst",
-				"SystemBase"
 			]
 		]
 	},
@@ -526,6 +526,10 @@
 		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"Clos",
+				"Project: Close"
+			],
 			[
 				"Close",
 				"Project: Close"
@@ -628,66 +632,68 @@
 	},
 	"expanded_folders":
 	[
-		"/J/Flexium",
-		"/J/Flexium/utility",
-		"/J/Flexium/utility/base_code"
+		"/J/Flexium"
 	],
 	"file_history":
 	[
-		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
-		"/J/Flexium/src/FlexiumUtility.cpp",
-		"/J/Flexium/src/Flexium.cpp",
-		"/J/Flexium/tests/spritesheet.xml",
-		"/J/Flexium/src/Window.cpp",
-		"/J/Flexium/include/Flexium/Window.hpp",
-		"/J/Flexium/src/Sprite.cpp",
-		"/J/Flexium/tests/WindowScaling.cpp",
-		"/J/Flexium/demo/spritesheet.xml",
-		"/J/Flexium/include/Flexium/Sprite.hpp",
 		"/J/Flexium/include/Flexium/Object.hpp",
 		"/J/Flexium/src/Object.cpp",
-		"/J/Flexium/utility/base_code/Main.cpp",
-		"/J/Flexium/include/Flexium/ConsoleMinimal.hpp",
+		"/J/Flexium/src/World.cpp",
 		"/J/Flexium/src/Console.cpp",
+		"/J/Flexium/src/FlexiumUtility.cpp",
+		"/J/Flexium/include/Flexium/pugiconfig.hpp",
+		"/J/Flexium/include/Flexium/ConsoleMinimal.hpp",
+		"/J/Flexium/include/Flexium/Console.hpp",
+		"/J/Flexium/include/Flexium/World.hpp",
+		"/J/Flexium/include/Flexium/Sprite.hpp",
+		"/J/Flexium/tests/spritesheet.xml",
+		"/J/Flexium/demo/spritesheet.xml",
+		"/J/Flexium/src/Sprite.cpp",
+		"/J/Flexium/demo/soundsheet.xml",
+		"/J/Flexium/demo/fontsheet.xml",
+		"/J/Flexium/tests/AddObjectWhileIterating.cpp",
+		"/J/Flexium/include/Flexium/Window.hpp",
+		"/J/Flexium/src/Window.cpp",
+		"/J/Flexium/tests/WindowScaling.cpp",
+		"/J/Flexium/demo/console.otf",
+		"/J/Flexium/include/Flexium/Flexium.hpp",
+		"/J/Flexium/demo/Demo.cpp",
+		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
+		"/J/Flexium/src/Flexium.cpp",
+		"/J/Flexium/src/Text.cpp",
+		"/J/Flexium/TODO.md",
+		"/J/Flexium/include/Flexium/Text.hpp",
+		"/J/Flexium/include/Flexium/TileMap.hpp",
+		"/J/Flexium/.gitignore",
+		"/J/Flexium/utility/base_code/Main.cpp",
 		"/J/Flexium/utility/base_code/Readme.txt",
 		"/J/Flexium/src/TiledMapLoader.cpp",
-		"/J/Flexium/.gitignore",
 		"/J/Flexium/.gitattributes",
 		"/J/Flexium/Flexium.sublime-project",
 		"/J/Flexium/makefile",
 		"/J/Flexium/obj/Info.md",
 		"/J/Flexium/obj/Audio.d",
 		"/J/pygmy_minimal.cpp",
-		"/J/Flexium/TODO.md",
 		"/J/Flexium/README.md",
-		"/J/Flexium/include/Flexium/Console.hpp",
 		"/J/Flexium/tests/RemoveObjectWhileIterating.cpp",
-		"/J/Flexium/tests/AddObjectWhileIterating.cpp",
 		"/J/Flexium/include/Flexium/Random.hpp",
 		"/J/Flexium/include/Flexium/ConsoleExt.hpp",
 		"/J/Flexium/utility/base_code/spritesheet.xml",
 		"/J/Flexium/utility/base_code/soundsheet.xml",
 		"/J/Flexium/demo/font.ttf",
-		"/J/Flexium/include/Flexium/TileMap.hpp",
 		"/J/Flexium/include/Flexium/Vector.hpp",
-		"/J/Flexium/demo/Demo.cpp",
-		"/J/Flexium/src/World.cpp",
 		"/J/Flexium/src/Vector.cpp",
 		"/J/Flexium/include/Flexium/Timer.hpp",
 		"/J/Flexium/src/Timer.cpp",
 		"/J/Flexium/src/TileMap.cpp",
 		"/J/Flexium/src/Random.cpp",
-		"/J/Flexium/src/Text.cpp",
-		"/J/Flexium/include/Flexium/World.hpp",
 		"/J/Flexium/include/Flexium/TiledMapLoader.hpp",
-		"/J/Flexium/include/Flexium/Text.hpp",
 		"/J/Flexium/src/Input.cpp",
 		"/J/Flexium/src/pugixml.cpp",
 		"/J/Flexium/include/Flexium/Input.hpp",
 		"/J/Flexium/src/Event.cpp",
 		"/J/Flexium/include/Flexium/Event.hpp",
 		"/J/Flexium/src/Audio.cpp",
-		"/J/Flexium/include/Flexium/Flexium.hpp",
 		"/J/Flexium/include/Flexium/Audio.hpp",
 		"/J/Flexium/include/Audio.hpp",
 		"/J/Flexium/lib/Info.txt",
@@ -705,8 +711,6 @@
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/SpkVCL.dpk",
 		"/C/Users/DXsmiley/Downloads/winqconsole-code-47/winqconsole-code-47/trunc/spkvcl/spkvcl.lpk",
 		"/J/Flexium/test/Main.cpp",
-		"/J/Flexium/demo/fontsheet.xml",
-		"/J/Flexium/demo/soundsheet.xml",
 		"/J/Flexium/demo/font_terms_of_use.txt",
 		"/J/Flexium/include/Text.hpp",
 		"/J/Flexium/demo/sound.wav",
@@ -759,9 +763,7 @@
 		"/J/Flexium/FlexiumUtility.cpp",
 		"/J/Flexium/Flexium.h",
 		"/J/Flexium/EventSpawnPlayer.cpp",
-		"/J/Flexium/EnemySimple.cpp",
-		"/J/Flexium/EventSpawnPlayer.hpp",
-		"/J/Flexium/LevelChangeRegion.hpp"
+		"/J/Flexium/EnemySimple.cpp"
 	],
 	"find":
 	{
@@ -781,6 +783,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Update",
+			"setTriggerUpdate",
+			"getTriggerUpdate",
 			"o",
 			"sf::",
 			"scroll",
@@ -959,20 +964,56 @@
 		"selected_items":
 		[
 			[
-				"fu",
-				"include\\Flexium\\FlexiumUtility.hpp"
-			],
-			[
-				"sprite",
-				"src\\Sprite.cpp"
-			],
-			[
-				"window",
-				"include\\Flexium\\Window.hpp"
+				"console",
+				"src\\Console.cpp"
 			],
 			[
 				"object",
 				"include\\Flexium\\Object.hpp"
+			],
+			[
+				"fu",
+				"src\\FlexiumUtility.cpp"
+			],
+			[
+				"world",
+				"src\\World.cpp"
+			],
+			[
+				"obj",
+				"src\\Object.cpp"
+			],
+			[
+				"sprite",
+				"include\\Flexium\\Sprite.hpp"
+			],
+			[
+				"wo",
+				"src\\World.cpp"
+			],
+			[
+				"demo",
+				"demo\\Demo.cpp"
+			],
+			[
+				"obje",
+				"include\\Flexium\\Object.hpp"
+			],
+			[
+				"flex",
+				"include\\Flexium\\Flexium.hpp"
+			],
+			[
+				"text",
+				"src\\Text.cpp"
+			],
+			[
+				"font",
+				"demo\\fontsheet.xml"
+			],
+			[
+				"window",
+				"include\\Flexium\\Window.hpp"
 			],
 			[
 				"windo",
@@ -993,14 +1034,6 @@
 			[
 				"consol",
 				"src\\Console.cpp"
-			],
-			[
-				"demo",
-				"demo\\Demo.cpp"
-			],
-			[
-				"world",
-				"src\\World.cpp"
 			],
 			[
 				"vector",
@@ -1031,10 +1064,6 @@
 				"include\\Flexium\\Text.hpp"
 			],
 			[
-				"text",
-				"src\\Text.cpp"
-			],
-			[
 				"ra",
 				"include\\Flexium\\Random.hpp"
 			],
@@ -1063,10 +1092,6 @@
 				"src\\FlexiumUtility.cpp"
 			],
 			[
-				"flex",
-				"src\\Flexium.cpp"
-			],
-			[
 				"flexiu",
 				"include\\Flexium\\Flexium.hpp"
 			],
@@ -1081,10 +1106,6 @@
 			[
 				"o",
 				"include\\Flexium\\Object.hpp"
-			],
-			[
-				"console",
-				"src\\Console.cpp"
 			],
 			[
 				"au",
@@ -1105,10 +1126,6 @@
 			[
 				"sound",
 				"demo\\soundsheet.xml"
-			],
-			[
-				"font",
-				"demo\\fontsheet.xml"
 			],
 			[
 				"",
@@ -1299,10 +1316,6 @@
 				"Sprite.cpp"
 			],
 			[
-				"obje",
-				"Object.hpp"
-			],
-			[
 				"tti",
 				"Title.cpp"
 			],
@@ -1377,10 +1390,6 @@
 			[
 				"cons",
 				"Console.hpp"
-			],
-			[
-				"obj",
-				"Object.hpp"
 			],
 			[
 				"worl",
@@ -1465,10 +1474,6 @@
 			[
 				"loader",
 				"TiledMapLoader.cpp"
-			],
-			[
-				".tmx",
-				"maps\\test.tmx"
 			]
 		],
 		"width": 0.0
@@ -1537,7 +1542,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": false,
+	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,

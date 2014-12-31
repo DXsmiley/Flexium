@@ -17,6 +17,12 @@ namespace flx {
 
 	} object_sorter;
 
+	World::World() {
+		id_counter = 0;
+		trigger_update = true;
+		trigger_draw = true;
+	}
+
 	Object * World::instanceAdd(Object * o) {
 		instances.push_back(o);
 		o -> registerWorld(id_counter++, this);
@@ -35,13 +41,13 @@ namespace flx {
 			Window::getHandle() -> clear(::sf::Color::Black);
 			std::stable_sort(instances.begin(), instances.end(), object_sorter);
 			for (unsigned int i = 0; i < instances.size(); i++) {
-				if (instances[i] -> isAlive() && instances[i] -> isActive()) {
+				if (instances[i] -> isAlive() && instances[i] -> isActive() && (trigger_update || instances[i] -> isMeta())) {
 					instances[i] -> onUpdate();
 				}
 			}
 			std::stable_sort(instances.begin(), instances.end(), object_sorter);
 			for (unsigned int i = 0; i < instances.size(); i++) {
-				if (instances[i] -> isAlive() && instances[i] -> isActive()) {
+				if (instances[i] -> isAlive() && instances[i] -> isActive() && (trigger_draw || instances[i] -> isMeta())) {
 					instances[i] -> onDraw();
 				}
 			}
@@ -49,5 +55,22 @@ namespace flx {
 		}
 		return open;
 	}
+
+	bool World::getTriggerUpdate() {
+		return trigger_update;
+	}
+
+	bool World::getTriggerDraw() {
+		return trigger_draw;
+	}
+
+	void World::setTriggerUpdate(bool t) {
+		trigger_update = t;
+	}
+
+	void World::setTriggerDraw(bool t) {
+		trigger_draw = t;
+	}
+
 
 }

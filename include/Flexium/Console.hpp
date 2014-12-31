@@ -12,6 +12,8 @@
 
 namespace flx {
 
+	class World;
+
 	class ConsoleInGame : public Object {
 
 		private:
@@ -25,7 +27,8 @@ namespace flx {
 			ConsoleInGame(): typing(false), command(), lines() {};
 
 			void addLine(std::string);
-
+			void clear();
+			
 			virtual void onCreate();
 			virtual void onUpdate();
 			virtual void onDraw();
@@ -35,7 +38,13 @@ namespace flx {
 
 	namespace Console {
 
-		void commandSet(std::string, void (*)(std::vector<std::string>));
+		struct CommandInfo {
+			std::vector<std::string> args;
+			World * world;
+			ConsoleInGame * console;
+		};
+
+		void commandSet(std::string, void (*)(const CommandInfo&));
 
 	}
 

@@ -40,7 +40,7 @@ namespace flx {
 
 		void draw(double x, double y, std::string mystring, const char * font, int fontsize, const ::sf::Color& colour) {
 			::sf::Font * the_font = fonts[font];
-			if (the_font == NULL) throw FlexiumException("Font does not exist!");
+			if (the_font == NULL) throw FlexiumException(std::string("Font does not exist: ") + std::string(font));
 			::sf::Text text;
 			text.setString(mystring);
 			text.setPosition(x, y);

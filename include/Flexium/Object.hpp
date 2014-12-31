@@ -15,6 +15,7 @@ namespace flx {
 			bool alive;
 			bool active;
 			bool persistent;
+			bool meta;
 			unsigned int id; // Should be made 'readonly' sometime in the future
 			World * my_world;
 
@@ -38,7 +39,7 @@ namespace flx {
 				 - getID() will return an (incorrect) id of 0.
 				 - getWorld() will return NULL
 			*/
-			Object(): depth(0), alive(true), active(true), persistent(false), id(0), my_world(NULL) {};
+			Object(): depth(0), alive(true), active(true), persistent(false), meta(false), id(0), my_world(NULL) {};
 
 			// control and meta queries
 
@@ -91,8 +92,18 @@ namespace flx {
 				Sets the depth of the object.
 				See getDepth for more unformation of depth.
 			*/
-
 			void setDepth(int);
+
+			/**
+				Returns wheather the object is 'meta'. Meta objects still have their events triggered even if the world is paused.
+				Thi is usefull for begugging objects.
+			*/
+			bool isMeta();
+
+			/**
+				Set the meta status of the object.
+			*/
+			void setMeta(bool);
 
 			/**
 				Returns the numerical ID of the object.

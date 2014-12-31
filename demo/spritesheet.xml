@@ -10,7 +10,7 @@
 
 <spritesheet format="2">
 
-	<sprite name="image">
+	<sprite name="image" oversized="2"> <!-- oversized is not a real thing, just an idea -->
 		<frame source="image.png" />
 	</sprite>
 

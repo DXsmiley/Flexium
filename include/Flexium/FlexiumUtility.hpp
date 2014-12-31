@@ -152,6 +152,10 @@ namespace flx {
 
 	class Debugger : public Object {
 
+		private:
+
+			bool cursor_spr;
+
 		public:
 
 			virtual void onCreate();

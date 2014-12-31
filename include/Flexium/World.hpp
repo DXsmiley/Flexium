@@ -16,6 +16,8 @@ namespace flx {
 
 			std::vector<Object *> instances;
 			unsigned int id_counter;
+			bool trigger_update;
+			bool trigger_draw;
 
 		public:
 
@@ -99,9 +101,9 @@ namespace flx {
 			};
 
 			/**
-				Used to initiate the world.
+				Woo. A constructor.
 			*/
-			void startup();
+			World();
 
 			/**
 				Retuns a list that can be used to iterate over the avaliable objects.
@@ -194,6 +196,11 @@ namespace flx {
 				Returns true if the programm should continue to run, false otherwise.
 			*/
 			bool simulate();
+
+			bool getTriggerUpdate();
+			bool getTriggerDraw();
+			void setTriggerUpdate(bool);
+			void setTriggerDraw(bool);
 
 	};
 

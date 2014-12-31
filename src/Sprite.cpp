@@ -22,6 +22,7 @@ namespace flx {
 			int width;
 			int height;
 			int n_frames;
+			// int oversized;
 
 		};
 
@@ -39,6 +40,7 @@ namespace flx {
 			spr.width = t -> getSize().x;
 			spr.height = t -> getSize().y;
 			spr.n_frames = 1;
+			// spr.oversized = 1;
 			sprite_mapping[std::string(name)] = spr;
 		}
 
