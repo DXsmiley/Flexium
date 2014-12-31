@@ -629,17 +629,17 @@
 	"expanded_folders":
 	[
 		"/J/Flexium",
-		"/J/Flexium/tests",
 		"/J/Flexium/utility",
 		"/J/Flexium/utility/base_code"
 	],
 	"file_history":
 	[
+		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
+		"/J/Flexium/src/FlexiumUtility.cpp",
+		"/J/Flexium/src/Flexium.cpp",
 		"/J/Flexium/tests/spritesheet.xml",
 		"/J/Flexium/src/Window.cpp",
 		"/J/Flexium/include/Flexium/Window.hpp",
-		"/J/Flexium/include/Flexium/FlexiumUtility.hpp",
-		"/J/Flexium/src/FlexiumUtility.cpp",
 		"/J/Flexium/src/Sprite.cpp",
 		"/J/Flexium/tests/WindowScaling.cpp",
 		"/J/Flexium/demo/spritesheet.xml",
@@ -688,7 +688,6 @@
 		"/J/Flexium/include/Flexium/Event.hpp",
 		"/J/Flexium/src/Audio.cpp",
 		"/J/Flexium/include/Flexium/Flexium.hpp",
-		"/J/Flexium/src/Flexium.cpp",
 		"/J/Flexium/include/Flexium/Audio.hpp",
 		"/J/Flexium/include/Audio.hpp",
 		"/J/Flexium/lib/Info.txt",
@@ -960,6 +959,10 @@
 		"selected_items":
 		[
 			[
+				"fu",
+				"include\\Flexium\\FlexiumUtility.hpp"
+			],
+			[
 				"sprite",
 				"src\\Sprite.cpp"
 			],
@@ -970,10 +973,6 @@
 			[
 				"object",
 				"include\\Flexium\\Object.hpp"
-			],
-			[
-				"fu",
-				"include\\Flexium\\FlexiumUtility.hpp"
 			],
 			[
 				"windo",

@@ -12,12 +12,12 @@
 
 #include <Flexium/Vector.hpp>
 
-namespace flx {
+// foaward declaration
+namespace sf {
+	class Color;
+}
 
-	// foaward declaration
-	namespace sf {
-		class Color;
-	}
+namespace flx {
 
 	/**
 		Exception class that is thrown by Flexium when something goes wrong.
