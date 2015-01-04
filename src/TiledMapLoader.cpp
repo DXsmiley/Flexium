@@ -1,7 +1,7 @@
 #include <Flexium/TiledMapLoader.hpp>
 
 #include <Flexium/pugixml.hpp>
-#include <Flexium/Tilemap.hpp>
+#include <Flexium/TileMap.hpp>
 #include <Flexium/Console.hpp>
 #include <Flexium/World.hpp>
 
