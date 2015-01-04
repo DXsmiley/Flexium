@@ -47,6 +47,9 @@ namespace flx {
 		void drawPartial(Vector pos, Vector tex_pos, Vector tex_dim, ::sf::Texture * tex);
 		void drawPartial(Vector pos, Vector tex_pos, Vector tex_dim, const char * name);
 
+		int getWidth(const std::string& name);
+		int getHeight(const std::string& name);
+
 		::sf::Texture * getTexture(const char *);
 
 	};

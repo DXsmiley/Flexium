@@ -60,10 +60,10 @@ namespace flx {
 	}
 
 	void SimpleButton::onDraw() {
-		Sprite::draw(position.x - marginLeft(), position.y - marginTop(), image);
-		if (debug) {
-			graphicDrawRectangleOutline(Vector(position.x - marginLeft(), position.y - marginTop()), dimensions);
-		}
+		Sprite::draw(boundTopLeft(), image);
+		// if (debug) {
+		// 	graphicDrawRectangleOutline(Vector(position.x - marginLeft(), position.y - marginTop()), dimensions);
+		// }
 	}
 
 	Camera::Camera() {
@@ -82,6 +82,12 @@ namespace flx {
 
 	void Camera::setZoom(double z) {
 		zoom = z;
+	}
+
+	void CameraCentre::onUpdate() {
+		position.x = Window::getWidth() / 2;
+		position.y = Window::getHeight() / 2;
+		Camera::onUpdate();
 	}
 
 	Tweener::Tweener(double * v, double s, double e, double d, double l, Type t, Algorithm * a) {
@@ -182,6 +188,7 @@ namespace flx {
 	}
 
 	void Debugger::onCreate() {
+		setDepth(100);
 		setMeta(true);
 		setPersistent(true);
 		cursor_spr = false;

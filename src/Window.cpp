@@ -78,7 +78,8 @@ namespace flx {
 
 		void viewSetPositionZero() {
 			::sf::Vector2f s = window -> getView().getSize();
-			viewSetPosition(s.x / 2, s.y / 2);
+			//viewSetPosition(s.x / 2, s.y / 2);
+			viewSetPosition(s.x, s.y);
 		}
 
 		Vector viewGetCentre() {

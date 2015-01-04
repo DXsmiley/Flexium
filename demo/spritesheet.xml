@@ -1,16 +1,6 @@
-<!--
-<spritesheet>
-
-	<sprite name="image">
-		<frame source="image.png" />
-	</sprite>
-	
-</spritesheet>
--->
-
 <spritesheet format="2">
 
-	<sprite name="image" oversized="2"> <!-- oversized is not a real thing, just an idea -->
+	<sprite name="image">
 		<frame source="image.png" />
 	</sprite>
 

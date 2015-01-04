@@ -6,16 +6,19 @@
 #include <Flexium/Audio.hpp>
 #include <Flexium/Text.hpp>
 
+#include "Interface.hpp"
+
 int main() {
 
 	Window::WindowSettings ws;
 	Window::initiate(ws);
 
-	Sprite::loadMapping("spritesheet.xml");
-	Audio::loadMapping("soundsheet.xml");
-	Text::loadMapping("fontsheet.xml");
+	// Sprite::loadMapping("spritesheet.xml");
+	// Audio::loadMapping("soundsheet.xml");
+	// Text::loadMapping("fontsheet.xml");
 
 	World w;
+	w.instanceAdd(new Interface());
 	while (w.simulate());
 
 }

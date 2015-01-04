@@ -151,11 +151,13 @@ namespace flx {
 	}
 
 	void Object::setDimensionsToSprite(const char * name) {
-		::sf::Texture * tex = Sprite::getTexture(name);
-		if (tex) {
-			::sf::Vector2u dim = tex -> getSize();
-			dimensions = Vector(dim.x, dim.y);
-		}
+		dimensions.x = Sprite::getWidth(name);
+		dimensions.y = Sprite::getHeight(name);
+		// ::sf::Texture * tex = Sprite::getTexture(name);
+		// if (tex) {
+		// 	::sf::Vector2u dim = tex -> getSize();
+		// 	dimensions = Vector(dim.x, dim.y);
+		// }
 	}
 
 	void Object::setDimensionsToSprite(std::string name) {

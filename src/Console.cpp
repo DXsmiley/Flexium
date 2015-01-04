@@ -117,7 +117,7 @@ namespace flx {
 		Console::Log.setInGameConsole(this);
 		Console::Warn.setInGameConsole(this);
 		Console::Error.setInGameConsole(this);
-		setDepth(1);
+		setDepth(200);
 		setMeta(true);
 		Console::commandSet("help", cmdLogHelp);
 		Console::commandSet("?", cmdLogHelp);
@@ -192,7 +192,10 @@ namespace flx {
 		}
 		if (debug) {
 			Window::viewSetZoom(1);
-			Window::viewSetPositionZero();
+			Window::viewSetPosition(Window::getWidth() / 2, Window::getHeight() / 2);
+			sf::RectangleShape sf_rec(sf::Vector2f(420, 480));
+			sf_rec.setFillColor(sf::Color(0, 0, 0, 127));
+			Window::getHandle() -> draw(sf_rec);
 			std::stringstream ss;
 			ss << "FPS: " << fps << ", " << fps_hold;
 			Text::draw(20, 20, ss.str(), "console", 12, sf::Color::Green);

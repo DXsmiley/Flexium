@@ -83,6 +83,15 @@ namespace flx {
 
 	};
 
+	class CameraCentre : public Camera {
+
+		public:
+
+			virtual void onUpdate();
+			virtual ~CameraCentre() {};
+
+	};
+
 	class Tweener: public Object {
 
 		public:
