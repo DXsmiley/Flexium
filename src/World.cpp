@@ -30,6 +30,12 @@ namespace flx {
 		return o;
 	}
 
+	void World::instanceAdd(std::initializer_list<Object *> l) {
+		for (auto i : l) {
+			instanceAdd(i);
+		}
+	}
+
 	bool World::simulate() {
 		bool open = Window::getHandle() -> isOpen();
 		//std::stringstream ss;

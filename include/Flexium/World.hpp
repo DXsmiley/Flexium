@@ -2,6 +2,7 @@
 #define WORLD_HPP
 
 #include <vector>
+#include <initializer_list>
 
 #include <Flexium/Object.hpp>
 
@@ -190,6 +191,11 @@ namespace flx {
 				All objects must be added to the world if they are to be processed.
 			*/
 			Object * instanceAdd(Object * o);
+
+			/**
+				Adds multiple instances to the world.
+			*/
+			void instanceAdd(std::initializer_list<Object *>);
 			
 			/**
 				Processes a single tick.
