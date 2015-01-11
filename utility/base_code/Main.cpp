@@ -1,24 +1,24 @@
 #include <Flexium/World.hpp>
-#include <Flexium/Object.hpp>
 #include <Flexium/Window.hpp>
 #include <Flexium/Sprite.hpp>
-#include <Flexium/Input.hpp>
 #include <Flexium/Audio.hpp>
 #include <Flexium/Text.hpp>
-
-#include "Interface.hpp"
+#include <Flexium/Console.hpp>
+#include <Flexium/FlexiumUtility.hpp>
 
 int main() {
 
-	Window::WindowSettings ws;
-	Window::initiate(ws);
+	flx::Window::WindowSettings ws;
+	ws.title = "Window Title";
+	flx::Window::initiate(ws);
 
-	// Sprite::loadMapping("spritesheet.xml");
-	// Audio::loadMapping("soundsheet.xml");
-	// Text::loadMapping("fontsheet.xml");
+	flx::Sprite::loadMapping("spritesheet.xml");
+	flx::Audio::loadMapping("soundsheet.xml");
+	flx::Text::loadMapping("fontsheet.xml");
 
-	World w;
-	w.instanceAdd(new Interface());
-	while (w.simulate());
+	flx::World world;
+	world.instanceAdd(new flx::Debugger());
+	world.instanceAdd(new flx::ConsoleInGame());
+	while (world.simulate());
 
 }

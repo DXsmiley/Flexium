@@ -1,5 +1,6 @@
 <fontsheet>
 
-	<font name="font" source="font.ttf" />
+	<!-- The in-game console requires a font called 'console', otherwise it won't work -->
+	<font name="console" source="console.otf" />
 
 </fontsheet>
