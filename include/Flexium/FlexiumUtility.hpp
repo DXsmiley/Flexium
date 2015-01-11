@@ -7,6 +7,8 @@
 #include <Flexium/Timer.hpp>
 
 #include <cmath>
+#include <vector>
+#include <initializer_list>
 
 namespace flx {
 
@@ -26,8 +28,36 @@ namespace flx {
 		public:
 
 			EventPrint(std::string t): Event(), text(t) {};
-			virtual void trigger();
+			virtual void onTrigger();
 			virtual ~EventPrint() {};
+
+	};
+
+	class EventDestroy : public Event {
+
+		private:
+
+			Object * obj;
+
+		public:
+
+			EventDestroy(Object * o): obj(o) {};
+			virtual void onTrigger();
+			virtual ~EventDestroy() {};
+
+	};
+
+	class EventCompond : public Event {
+
+		private:
+
+			std::vector<Event *> events;
+
+		public:
+
+			EventCompond(std::initializer_list<Event*>);
+			virtual void onTrigger();
+			virtual ~EventCompond();
 
 	};
 

@@ -10,4 +10,8 @@ namespace flx {
 		world = w;
 	}
 
+	void Event::trigger() {
+		onTrigger();
+	}
+
 }

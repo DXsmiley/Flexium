@@ -21,7 +21,8 @@ namespace flx {
 			Event(World * w): world(w) {};
 			World * getWorld();
 			void setWorld(World *);
-			virtual void trigger() = 0;
+			virtual void trigger();
+			virtual void onTrigger() {};
 			virtual ~Event() {};
 
 	};

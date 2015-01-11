@@ -7,8 +7,32 @@
 
 namespace flx {
 
-	void EventPrint::trigger() {
+	void EventPrint::onTrigger() {
 		std::cout << text << std::endl;
+	}
+
+	void EventDestroy::onTrigger() {
+		obj -> destroy();
+	}
+
+	EventCompond::EventCompond(std::initializer_list<Event *> il) {
+		for (Event * i : il) {
+			events.push_back(i);
+		}
+
+	}
+
+	void EventCompond::onTrigger() {
+		for (unsigned int i = 0; i < events.size(); ++i) {
+			events[i] -> setWorld(world);
+			events[i] -> trigger();
+		}
+	}
+
+	EventCompond::~EventCompond() {
+		for (unsigned int i = 0; i < events.size(); ++i) {
+			delete events[i];
+		}
 	}
 
 	void Timer::onUpdate() {
