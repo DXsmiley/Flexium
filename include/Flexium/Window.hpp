@@ -5,6 +5,7 @@
 
 namespace sf {
 	class RenderWindow;
+	class Color;
 }
 
 namespace flx {
@@ -32,6 +33,11 @@ namespace flx {
 		void initiate(WindowSettings);
 		void setFrameRateLimit(int);
 		void close();
+
+		void setClearColor(::sf::Color);
+
+		void clear();
+		void display();
 
 		unsigned int getWidth();
 		unsigned int getHeight();

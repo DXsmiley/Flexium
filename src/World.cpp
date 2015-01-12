@@ -44,7 +44,7 @@ namespace flx {
 		//Console::Log << "Tick" << std::endl;
 		if (open) {
 			Input::update();
-			Window::getHandle() -> clear(::sf::Color::Black);
+			Window::clear();
 			std::stable_sort(instances.begin(), instances.end(), object_sorter);
 			for (unsigned int i = 0; i < instances.size(); i++) {
 				if (instances[i] -> isAlive() && instances[i] -> isActive() && (trigger_update || instances[i] -> isMeta())) {
@@ -57,7 +57,7 @@ namespace flx {
 					instances[i] -> onDraw();
 				}
 			}
-			Window::getHandle() -> display();
+			Window::display();
 		}
 		return open;
 	}

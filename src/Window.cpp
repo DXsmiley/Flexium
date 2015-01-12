@@ -11,7 +11,8 @@ namespace flx {
 
 		double view_height;
 		double view_width;
-		double view_zoom;
+		double view_zoom = 1;
+		::sf::Color background_color;
 
 		::sf::RenderWindow * window;
 
@@ -54,6 +55,18 @@ namespace flx {
 
 		void setFrameRateLimit(int rate) {
 			window -> setFramerateLimit(rate);
+		}
+
+		void setClearColor(::sf::Color c) {
+			background_color = c;
+		}
+
+		void clear() {
+			window -> clear(background_color);
+		}
+
+		void display() {
+			window -> display();
 		}
 
 		unsigned int getWidth() {

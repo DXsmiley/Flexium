@@ -4,9 +4,16 @@
 #include <Flexium/TileMap.hpp>
 #include <Flexium/Console.hpp>
 #include <Flexium/World.hpp>
+#include <Flexium/Window.hpp>
+
+#include <SFML/Graphics.hpp>
 
 #include <sstream>
 #include <locale>
+
+static int hexDigitToInt(char c) {
+	return c >= 'a' ? c - 'a' + 10 : c >= 'A' ? c - 'A' + 10 : c - '0';
+}
 
 namespace flx {
 
@@ -38,6 +45,14 @@ namespace flx {
 			std::cout << "An error occured when loading Tiled Map file " << filename << std::endl;
 		} else {
 			pugi::xml_node root = doc.child("map");
+			if (root.attribute("backgroundcolor")) {
+				std::string s = root.attribute("backgroundcolor").value();
+				int b = (hexDigitToInt(s[5]) * 16) + hexDigitToInt(s[6]);
+				int g = (hexDigitToInt(s[3]) * 16) + hexDigitToInt(s[4]);
+				int r = (hexDigitToInt(s[1]) * 16) + hexDigitToInt(s[2]);
+				std::cout << "Background color: " << s << ' ' << r << ' ' << g << ' ' << b << std::endl;
+				Window::setClearColor(::sf::Color(r, g, b));
+			}
 			int tm_width = root.attribute("width").as_int();
 			int tm_height = root.attribute("height").as_int();
 			//  std::cout << "Width: " << root.attribute("width").as_int(); << std::endl;
