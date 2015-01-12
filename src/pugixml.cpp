@@ -4844,7 +4844,7 @@ namespace pugi
 
 		if (!extra) return impl::make_parse_result(status_out_of_memory);
 
-		// save name; name of the root has to be NULL before parsing - otherwise closing node mismatches will not be detected at the top level
+		// save name; name of the root has to be nullptr before parsing - otherwise closing node mismatches will not be detected at the top level
 		char_t* rootname = _root->name;
 		_root->name = 0;
 

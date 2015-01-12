@@ -41,7 +41,7 @@ namespace flx {
 				event -> setWorld(getWorld());
 				event -> trigger();
 				delete event;
-				event = NULL;
+				event = nullptr;
 				destroy();
 			} else {
 				mytime--;
@@ -75,8 +75,8 @@ namespace flx {
 
 	void SimpleButton::onClick() {
 		Console::Log << "SimpleButton::onClick()" << std::endl;
-		if (click_event != NULL) {
-			if (click_event -> getWorld() == NULL) {
+		if (click_event != nullptr) {
+			if (click_event -> getWorld() == nullptr) {
 				click_event -> setWorld(getWorld());
 			}
 			click_event -> trigger();
@@ -190,7 +190,7 @@ namespace flx {
 						*value = v_end;
 						destroy();
 						delete algorithm;
-						algorithm = NULL;
+						algorithm = nullptr;
 					}
 					if (loop == LOOP_NORMAL) {
 						ticks_count = ticks_delay;
@@ -218,7 +218,7 @@ namespace flx {
 		cursor_spr = false;
 		// Try and load a cursor sprite if none are supplied.
 		try {
-			if (Sprite::getTexture("debug_cursor") == NULL) {
+			if (Sprite::getTexture("debug_cursor") == nullptr) {
 				Sprite::load("debug_cursor", "images/debug_cursor.png");
 			}
 			cursor_spr = true;

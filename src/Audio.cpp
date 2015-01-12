@@ -109,13 +109,13 @@ namespace flx {
 		}
 
 		void play(const char * name) {
-			if (mapping[name] != NULL) {
+			if (mapping[name] != nullptr) {
 				mapping[name] -> play();
 			}
 		}
 
 		void stop(const char * name) {
-			if (mapping[name] != NULL) {
+			if (mapping[name] != nullptr) {
 				mapping[name] -> stop();
 			}
 		}

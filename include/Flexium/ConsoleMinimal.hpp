@@ -25,7 +25,7 @@ namespace flx {
 
 				public:
 
-					MyStreamBuffer(std::string pre): prefix(pre), cig(NULL) {};
+					MyStreamBuffer(std::string pre): prefix(pre), cig(nullptr) {};
 					virtual int sync();
 
 			} buffer;

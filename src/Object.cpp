@@ -11,7 +11,7 @@ namespace flx {
 	}
 
 	void Object::registerWorld(int n, World * w) {
-		if (id != 0 || my_world != NULL) throw FlexiumException("Attempted to re-register object!");
+		if (id != 0 || my_world != nullptr) throw FlexiumException("Attempted to re-register object!");
 		id = n;
 		my_world = w;
 	}

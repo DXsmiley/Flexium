@@ -95,7 +95,7 @@ namespace flx {
 
 	int ConsoleStream::MyStreamBuffer::sync() {
 		//ConsoleInGame * cig = world -> instanceGetSingle<ConsoleInGame*>();
-		if (cig != NULL) cig -> addLine(prefix + str());
+		if (cig != nullptr) cig -> addLine(prefix + str());
 		std::cout << prefix << str();
 		str("");
 		std::cout.flush();
@@ -148,7 +148,7 @@ namespace flx {
 					}
 					if (!vec.empty()) {
 						void (*func)(const Console::CommandInfo&) = command_map[vec[0]];
-						if (func != NULL) {
+						if (func != nullptr) {
 							Console::CommandInfo ci;
 							ci.args = std::vector<std::string>(std::next(vec.begin()), vec.end());
 							ci.world = getWorld();

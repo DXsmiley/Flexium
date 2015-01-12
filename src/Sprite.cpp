@@ -224,7 +224,7 @@ namespace flx {
 		}
 
 		::sf::Texture * getTexture(const char * name) {
-			return sprite_mapping.count(name) == 0 ? NULL : sprite_mapping[name].texture;
+			return sprite_mapping.count(name) == 0 ? nullptr : sprite_mapping[name].texture;
 		}
 
 	}

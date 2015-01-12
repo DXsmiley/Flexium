@@ -9,7 +9,7 @@ namespace flx {
 	namespace Random {
 
 		void setSeed() {
-			std::srand(std::time(NULL));
+			std::srand(std::time(nullptr));
 		}
 
 		void setSeed(unsigned int seed) {

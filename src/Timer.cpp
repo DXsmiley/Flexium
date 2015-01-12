@@ -9,7 +9,7 @@ namespace flx {
 				event -> setWorld(getWorld());
 				event -> trigger();
 				delete event;
-				event = NULL;
+				event = nullptr;
 				destroy();
 			} else {
 				mytime--;

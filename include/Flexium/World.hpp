@@ -41,9 +41,9 @@ namespace flx {
 
 							void next() {
 								if (inactive) {
-									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (world -> instances[up_to] -> isActive()) || (dynamic_cast<U>(world -> instances[up_to]) == NULL))) up_to++;
+									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (world -> instances[up_to] -> isActive()) || (dynamic_cast<U>(world -> instances[up_to]) == nullptr))) up_to++;
 								} else {
-									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (!world -> instances[up_to] -> isActive()) || (dynamic_cast<U>(world -> instances[up_to]) == NULL))) up_to++;
+									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (!world -> instances[up_to] -> isActive()) || (dynamic_cast<U>(world -> instances[up_to]) == nullptr))) up_to++;
 								}
 							}
 
@@ -67,7 +67,7 @@ namespace flx {
 							}
 
 							U operator*() {
-								return up_to >= world -> instances.size() ? NULL : dynamic_cast<U>(world -> instances[up_to]);
+								return up_to >= world -> instances.size() ? nullptr : dynamic_cast<U>(world -> instances[up_to]);
 							}
 
 					};
@@ -123,25 +123,25 @@ namespace flx {
 			}
 
 			/**
-				Returns a single instance of a type of object, or NULL if none exist.
+				Returns a single instance of a type of object, or nullptr if none exist.
 			*/
 			template <typename T>
 			T instanceGetSingle() {
 				for (T i : InstanceList<T>(this, false)) {
 					return i;
 				}
-				return NULL;
+				return nullptr;
 			}
 
 			/**
-				Returns a single instance of a type of inactive object, or NULL if none exist.
+				Returns a single instance of a type of inactive object, or nullptr if none exist.
 			*/
 			template <typename T>
 			T instanceGetSingleInactive() {
 				for (T i : InstanceList<T>(this, true)) {
 					return i;
 				}
-				return NULL;
+				return nullptr;
 			}
 
 			/**
@@ -153,7 +153,7 @@ namespace flx {
 				for (T i : InstanceList<T>(this, false)) {
 					if ((n--) == 0) return i;
 				}
-				return NULL;
+				return nullptr;
 			}
 
 			/**
@@ -165,7 +165,7 @@ namespace flx {
 				for (T i : InstanceList<T>(this, true)) {
 					if ((n--) == 0) return i;
 				}
-				return NULL;
+				return nullptr;
 			}
 
 			/**

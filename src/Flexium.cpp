@@ -15,7 +15,7 @@ namespace flx {
 	bool debug;
 
 	void assertStarted() {
-		if (Window::getHandle() == NULL) throw FlexiumException("Flexium was not initiated");
+		if (Window::getHandle() == nullptr) throw FlexiumException("Flexium was not initiated");
 	}
 
 	void graphicDrawRectangleOutline(Vector pos, Vector dim) {

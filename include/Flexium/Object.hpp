@@ -37,9 +37,9 @@ namespace flx {
 				Upon construction, objects adhere to the following conditions:
 				 - isAlive() will return true.
 				 - getID() will return an (incorrect) id of 0.
-				 - getWorld() will return NULL
+				 - getWorld() will return nullptr
 			*/
-			Object(): depth(0), alive(true), active(true), persistent(false), meta(false), id(0), my_world(NULL) {};
+			Object(): depth(0), alive(true), active(true), persistent(false), meta(false), id(0), my_world(nullptr) {};
 
 			// control and meta queries
 
@@ -303,7 +303,7 @@ namespace flx {
 			Object * object;
 
 			void drop() {
-				if (object != NULL) {
+				if (object != nullptr) {
 					object -> decreaseRefCount();
 					if (object -> hasNoRefs()) {
 						delete object;
@@ -319,7 +319,7 @@ namespace flx {
 			};
 
 			Pointer() {
-				object = NULL;
+				object = nullptr;
 			}
 
 			Pointer(const Pointer& p) {

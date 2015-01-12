@@ -24,7 +24,7 @@ namespace flx {
 
 		/**
 			Reutns a pointer to the ::sf::Font specified by @param name.
-			Reutns NULL if no font with that name exists.
+			Reutns nullptr if no font with that name exists.
 		*/
 		::sf::Font * getFont(const char * name);
 
