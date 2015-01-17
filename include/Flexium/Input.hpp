@@ -7,6 +7,8 @@
 
 namespace flx {
 
+	class Vector;
+
 	/**
 		Provides functions for checking the state of input devices, such is the keyboard and mouse.
 	*/
@@ -93,6 +95,12 @@ namespace flx {
 		bool mouseReleased(int);
 
 		/**
+			Gets the current position of the mouse cursor, relative to the window.
+			@returns the cursor's current position, as a vector
+		*/
+		Vector mouse();
+
+		/**
 			Gets the current x position of the mouse cursor, relative to the window.
 			@returns the cursor's x position
 		*/
@@ -122,7 +130,7 @@ namespace flx {
 			Enumeration of keyboard key codes. Taken from SFML 2.1. Subject to change if SFML does.
 		*/
 		namespace Key {
-			enum { 
+			enum {
 				Unknown = -1, 
 				A = 0, 
 				B, 

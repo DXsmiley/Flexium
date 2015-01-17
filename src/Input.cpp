@@ -1,13 +1,14 @@
 #include <Flexium/Input.hpp>
 #include <Flexium/Flexium.hpp>
 #include <Flexium/Window.hpp>
+#include <Flexium/Vector.hpp>
 
 namespace flx {
 
 	namespace Input {
 
 		char keyboard[1024];
-		char mouse[8];
+		char mouse_array[8];
 		char char_typed;
 
 		void update() {
@@ -17,7 +18,7 @@ namespace flx {
 				keyboard[i] = to[(int)keyboard[i]];
 			}
 			for (unsigned int i = 0; i < ::sf::Mouse::ButtonCount; i++) {
-				mouse[i] = to[(int)mouse[i]];
+				mouse_array[i] = to[(int)mouse_array[i]];
 			}
 			::sf::Event event;
 			auto handle = Window::getHandle();
@@ -39,12 +40,12 @@ namespace flx {
 				if (event.type == ::sf::Event::MouseButtonPressed) {
 					int code = event.mouseButton.button;
 					//if (debug) std::cout << "Mouse button pressed " << code << std::endl;
-					mouse[code] = (mouse[code] == 0 || mouse[code] == 3) ? 1 : 2;
+					mouse_array[code] = (mouse_array[code] == 0 || mouse_array[code] == 3) ? 1 : 2;
 				}
 				if (event.type == ::sf::Event::MouseButtonReleased) {
 					int code = event.mouseButton.button;
 					//if (debug) std::cout << "Mouse button released " << code << std::endl;
-					mouse[code] = 3;
+					mouse_array[code] = 3;
 				}
 				if (event.type == ::sf::Event::TextEntered) {
 					if (event.text.unicode < 128) {
@@ -116,15 +117,19 @@ namespace flx {
 		}
 
 		bool mouseDown(int k) {
-			return mouse[k] == 1 || mouse[k] == 2;
+			return mouse_array[k] == 1 || mouse_array[k] == 2;
 		}
 
 		bool mousePressed(int k) {
-			return mouse[k] == 1;
+			return mouse_array[k] == 1;
 		}
 
 		bool mouseReleased(int k) {
-			return mouse[k] == 3;
+			return mouse_array[k] == 3;
+		}
+
+		Vector mouse() {
+			return Vector(mouseX(), mouseY());
 		}
 
 		double mouseX() {
