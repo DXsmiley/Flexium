@@ -2,6 +2,7 @@
 #define WORLD_HPP
 
 #include <vector>
+#include <list>
 #include <initializer_list>
 
 #include <Flexium/Object.hpp>
@@ -16,6 +17,9 @@ namespace flx {
 		private:
 
 			std::vector<Object *> instances;
+			std::vector<Object *> instances_on_instance_added;
+			std::vector<Object *> instances_on_update;
+			std::vector<Object *> instances_on_draw;
 			unsigned int id_counter;
 			bool trigger_update;
 			bool trigger_draw;

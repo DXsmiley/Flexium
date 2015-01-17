@@ -64,6 +64,21 @@ namespace flx {
 		alive = false;
 	}
 
+	void Object::onUpdate() {
+		// if this isn't implemented, it'll throw an error to tell the world that it shouldn't be called again.
+		throw flx::FlexiumExceptionNotImplemented("");
+	}
+
+	void Object::onDraw() {
+		// if this isn't implemented, it'll throw an error to tell the world that it shouldn't be called again.
+		throw flx::FlexiumExceptionNotImplemented("");		
+	}
+
+	void Object::onInstanceAdded(Object *) {
+		// if this isn't implemented, it'll throw an error to tell the world that it shouldn't be called again.
+		throw flx::FlexiumExceptionNotImplemented("");
+	}
+
 	void Object::setPosition(double x, double y) {
 		position.x = x;
 		position.y = y;

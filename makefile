@@ -1,7 +1,7 @@
 CPP_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 DEP_FILES := $(OBJ_FILES:.o=.d)
-CC_FLAGS := -Wall -g -std=c++11 -I include
+CC_FLAGS := -Wall -g -std=c++11 -I include -O2
 CPP_TEST_FILES := $(wildcard tests/*.cpp)
 EXE_LINK_FLAGS := -L ./lib -lflexium -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
 

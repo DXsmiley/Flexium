@@ -113,12 +113,13 @@ namespace flx {
 	}
 
 	void ConsoleInGame::onCreate() {
-		// Should probably not have this hard coded, in case people want multiple in-game consoles.
+		// Should probably not have this hard coded, in case people want multiple in-game consoles (but why would they want that?)
 		Console::Log.setInGameConsole(this);
 		Console::Warn.setInGameConsole(this);
 		Console::Error.setInGameConsole(this);
 		setDepth(200);
 		setMeta(true);
+		setPersistent(true);
 		Console::commandSet("help", cmdLogHelp);
 		Console::commandSet("?", cmdLogHelp);
 		Console::commandSet("info", cmdLogInfo);
@@ -127,7 +128,6 @@ namespace flx {
 		Console::commandSet("exit", cmdProgEnd);
 		Console::commandSet("trigupdate", cmdTriggerUpdate);
 		Console::commandSet("trigdraw", cmdTriggerDraw);
-		setPersistent(true);
 	}
 
 	void ConsoleInGame::onUpdate() {
@@ -194,7 +194,7 @@ namespace flx {
 			Window::viewSetZoom(1);
 			Window::viewSetPosition(Window::getWidth() / 2, Window::getHeight() / 2);
 			sf::RectangleShape sf_rec(sf::Vector2f(420, 480));
-			sf_rec.setFillColor(sf::Color(0, 0, 0, 127));
+			sf_rec.setFillColor(sf::Color(0, 0, 0, 96));
 			Window::getHandle() -> draw(sf_rec);
 			std::stringstream ss;
 			ss << "FPS: " << fps << ", " << fps_hold;

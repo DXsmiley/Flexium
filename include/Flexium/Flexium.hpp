@@ -22,9 +22,9 @@ namespace flx {
 	/**
 		Exception class that is thrown by Flexium when something goes wrong.
 	*/
-	class FlexiumException: public std::exception {
+	class FlexiumException : public std::exception {
 
-		private:
+		protected:
 
 			std::string text;
 
@@ -36,6 +36,15 @@ namespace flx {
 			virtual const char * what() const throw() {
 				return text.c_str();
 			}
+
+	};
+
+	class FlexiumExceptionNotImplemented : public FlexiumException {
+
+		public:
+
+			FlexiumExceptionNotImplemented(const char * t): FlexiumException(t) {};
+			FlexiumExceptionNotImplemented(std::string t): FlexiumException(t) {};
 
 	};
 

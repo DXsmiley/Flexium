@@ -144,14 +144,16 @@ namespace flx {
 
 			/**
 				The update function is called once on every object every game tick.
+				This is not called on objects that do not implement it.
 			*/
-			virtual void onUpdate() {};
+			virtual void onUpdate();
 
 			/**
 				The draw function is called once every object every frame.
 				This may or may not be called at the same rate as onUpdate().
+				This is not called on objects that do not implement it.
 			*/
-			virtual void onDraw() {};
+			virtual void onDraw();
 
 			/**
 				Called when the object is destroyed.
@@ -159,6 +161,12 @@ namespace flx {
 				@see destroy()
 			*/
 			virtual void onDestroy() {};
+
+			/**
+				Called when another object is added to the world.
+				This is not called on objects that do not implement it.
+			*/
+			virtual void onInstanceAdded(Object *);
 
 			/**
 				Virtual destructor on object.
