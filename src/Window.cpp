@@ -45,8 +45,11 @@ namespace flx {
 				 }
 			}
 			window = new ::sf::RenderWindow(::sf::VideoMode(s.width, s.height), s.title, style);
-			window -> setVerticalSyncEnabled(true);
-			if (s.framelimit != 0) window -> setFramerateLimit(s.framelimit);
+			if (s.framelimit != 0) {
+				window -> setFramerateLimit(s.framelimit);
+			} else {
+				window -> setVerticalSyncEnabled(true);
+			}
 		}
 
 		void close() {
