@@ -95,9 +95,14 @@ namespace flx {
 		setDepth(1);
 	}
 
+	Camera::Camera(int depth) {
+		zoom = 1;
+		setDepth(depth);
+	}
+
 	void Camera::onUpdate() {
-		Window::viewSetPosition(position);
 		Window::viewSetZoom(zoom);
+		Window::viewSetPosition(position);
 	}
 
 	double& Camera::getZoom() {

@@ -106,6 +106,7 @@ namespace flx {
 		public:
 
 			Camera();
+			Camera(int);
 			double& getZoom();
 			void setZoom(double z);
 			virtual void onUpdate();
