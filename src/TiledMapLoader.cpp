@@ -96,6 +96,10 @@ namespace flx {
 						info.position = Vector(object.attribute("x").as_int(), object.attribute("y").as_int());
 						info.dimensions = Vector(object.attribute("width").as_int(), object.attribute("height").as_int());
 						info.name = object.attribute("name").value();
+						for (pugi::xml_node param_node : object.child("properties").children()) {
+							info.parameters[param_node.attribute("name").value()] = param_node.attribute("value").value();
+							std::cout << "Loaded paremeter " << param_node.attribute("name").value() << " : " << param_node.attribute("value").value() << std::endl;
+						}
 						(*rules[group_name])(info);
 					}
 				} else {

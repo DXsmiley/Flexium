@@ -15,6 +15,7 @@ namespace flx {
 		Vector dimensions;
 		World * world;
 		std::string name;
+		std::map<std::string, std::string> parameters;
 
 	};
 
