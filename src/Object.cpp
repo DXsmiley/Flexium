@@ -74,7 +74,7 @@ namespace flx {
 		throw flx::FlexiumExceptionNotImplemented("");		
 	}
 
-	void Object::onInstanceAdded(Object *) {
+	void Object::onInstanceAdded(std::shared_ptr<Object>) {
 		// if this isn't implemented, it'll throw an error to tell the world that it shouldn't be called again.
 		throw flx::FlexiumExceptionNotImplemented("");
 	}
@@ -179,7 +179,7 @@ namespace flx {
 		setDimensionsToSprite(name.c_str());
 	}
 
-	bool Object::collidesWith(Object * o) {
+	bool Object::collidesWith(flx::shared_ptr_autocast<Object> o) {
 		return boundLeft() < o -> boundRight() && boundRight() > o -> boundLeft() && boundTop() < o -> boundBottom() && boundBottom() > o -> boundTop();
 	}
 

@@ -13,12 +13,12 @@ namespace flx {
 
 		private:
 
-			Object * p;
+			std::shared_ptr<Object> p;
 
 		public:
 
-			CallEventInstanceAdded(Object * x): p(x) {};
-			void operator()(Object * o) const {
+			CallEventInstanceAdded(std::shared_ptr<Object> x): p(x) {};
+			void operator()(std::shared_ptr<Object> o) const {
 				o -> onInstanceAdded(p);
 			}
 
@@ -28,7 +28,7 @@ namespace flx {
 
 		public:
 
-			void operator()(Object * o) const {
+			void operator()(std::shared_ptr<Object> o) const {
 				o -> onUpdate();
 			}
 
@@ -38,7 +38,7 @@ namespace flx {
 
 		public:
 
-			void operator()(Object * o) const {
+			void operator()(std::shared_ptr<Object> o) const {
 				o -> onDraw();
 			}
 
@@ -48,14 +48,14 @@ namespace flx {
 
 		public:
 
-			bool operator ()(const Object * const a, const Object * const b) const {
-				return a != nullptr && b != nullptr && a -> getDepth() < b -> getDepth();
+			bool operator ()(const std::shared_ptr<Object> a, const std::shared_ptr<Object> b) const {
+				return a && b && a -> getDepth() < b -> getDepth();
 			}
 
 	} object_sorter;
 
 	template <typename T>
-	void callEvent(std::vector<Object *>& vec, const T action) {
+	void callEvent(std::vector<std::shared_ptr<Object> >& vec, const T action) {
 		std::stable_sort(vec.begin(), vec.end(), object_sorter);
 		int last = 0;
 		for (unsigned int i = 0; i < vec.size(); ++i) {
@@ -77,18 +77,23 @@ namespace flx {
 		id_counter = 0;
 		trigger_update = true;
 		trigger_draw = true;
+		my_clock.restart();
 	}
 
-	Object * World::instanceAdd(Object * o) {
-		instances.push_back(o);
+	std::shared_ptr<Object> World::instanceAdd(std::shared_ptr<Object> o) {
 		o -> registerWorld(id_counter++, this);
 		o -> onCreate();
 		// signal to existing objects that this object has been added (THIS HAS NOT BEEN THOUGHROUGLY TESTED)
+		instances.push_back(o);
 		callEvent(instances_on_instance_added, CallEventInstanceAdded(o));
 		instances_on_instance_added.push_back(o);
 		instances_on_update.push_back(o);
 		instances_on_draw.push_back(o);
 		return o;
+	}
+
+	std::shared_ptr<Object> World::instanceAdd(Object * ptr) {
+		return instanceAdd(std::shared_ptr<Object>(ptr));
 	}
 
 	void World::instanceAdd(std::initializer_list<Object *> l) {
@@ -99,28 +104,15 @@ namespace flx {
 
 	bool World::simulate() {
 		bool open = Window::getHandle() -> isOpen();
-		//std::stringstream ss;
-		//ss << "FPS: " << fpsGet(fps_clock.restart());
-		//Window::getHandle() -> setTitle(ss.str());
-		//Console::Log << "Tick" << std::endl;
 		if (open) {
 			Input::update();
 			Window::clear();
 			callEvent(instances_on_update, CallEventUpdate());
 			callEvent(instances_on_draw, CallEventDraw());
-			// std::stable_sort(instances.begin(), instances.end(), object_sorter);
-			// for (unsigned int i = 0; i < instances.size(); i++) {
-			// 	if (instances[i] -> isAlive() && instances[i] -> isActive() && (trigger_update || instances[i] -> isMeta())) {
-			// 		instances[i] -> onUpdate();
-			// 	}
-			// }
-			// std::stable_sort(instances.begin(), instances.end(), object_sorter);
-			// for (unsigned int i = 0; i < instances.size(); i++) {
-			// 	if (instances[i] -> isAlive() && instances[i] -> isActive() && (trigger_draw || instances[i] -> isMeta())) {
-			// 		instances[i] -> onDraw();
-			// 	}
-			// }
 			Window::display();
+			sf::Time elapsed = my_clock.restart();
+			double time_to_sleep = std::max(0.01, (1.0 / 60.0) - elapsed.asSeconds());
+			sf::sleep(sf::seconds(time_to_sleep));
 		}
 		return open;
 	}

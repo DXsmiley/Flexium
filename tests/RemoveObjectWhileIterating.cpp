@@ -53,7 +53,7 @@ int main() {
 	Object * target = new ObjectOne("Bob");
 	world.instanceAdd(new ObjectTwo("Bill", target));
 	world.instanceAdd(target);
-	for (auto i : world.instanceGet<ObjectOne*>()) {
+	for (auto i : world.instanceGet<ObjectOne>()) {
 		i -> sayName();
 	}
 }

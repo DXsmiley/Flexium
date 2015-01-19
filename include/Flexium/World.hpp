@@ -4,8 +4,11 @@
 #include <vector>
 #include <list>
 #include <initializer_list>
+#include <memory>
 
 #include <Flexium/Object.hpp>
+
+#include <SFML/System.hpp>
 
 namespace flx {
 
@@ -16,13 +19,14 @@ namespace flx {
 
 		private:
 
-			std::vector<Object *> instances;
-			std::vector<Object *> instances_on_instance_added;
-			std::vector<Object *> instances_on_update;
-			std::vector<Object *> instances_on_draw;
+			std::vector<std::shared_ptr<Object> > instances;
+			std::vector<std::shared_ptr<Object> > instances_on_instance_added;
+			std::vector<std::shared_ptr<Object> > instances_on_update;
+			std::vector<std::shared_ptr<Object> > instances_on_draw;
 			unsigned int id_counter;
 			bool trigger_update;
 			bool trigger_draw;
+			sf::Clock my_clock;
 
 		public:
 
@@ -45,9 +49,9 @@ namespace flx {
 
 							void next() {
 								if (inactive) {
-									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (world -> instances[up_to] -> isActive()) || (dynamic_cast<U>(world -> instances[up_to]) == nullptr))) up_to++;
+									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (world -> instances[up_to] -> isActive()) || (!std::dynamic_pointer_cast<U>(world -> instances[up_to])))) up_to++;
 								} else {
-									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (!world -> instances[up_to] -> isActive()) || (dynamic_cast<U>(world -> instances[up_to]) == nullptr))) up_to++;
+									while (up_to < world -> instances.size() && ((!world -> instances[up_to] -> isAlive()) || (!world -> instances[up_to] -> isActive()) || (!std::dynamic_pointer_cast<U>(world -> instances[up_to])))) up_to++;
 								}
 							}
 
@@ -70,8 +74,8 @@ namespace flx {
 								return *this;
 							}
 
-							U operator*() {
-								return up_to >= world -> instances.size() ? nullptr : dynamic_cast<U>(world -> instances[up_to]);
+							std::shared_ptr<U> operator*() {
+								return up_to >= world -> instances.size() ? nullptr : std::dynamic_pointer_cast<U>(world -> instances[up_to]);
 							}
 
 					};
@@ -130,8 +134,8 @@ namespace flx {
 				Returns a single instance of a type of object, or nullptr if none exist.
 			*/
 			template <typename T>
-			T instanceGetSingle() {
-				for (T i : InstanceList<T>(this, false)) {
+			std::shared_ptr<T> instanceGetSingle() {
+				for (std::shared_ptr<T> i : InstanceList<T>(this, false)) {
 					return i;
 				}
 				return nullptr;
@@ -194,7 +198,12 @@ namespace flx {
 				Adds an instance of an objects to the world.
 				All objects must be added to the world if they are to be processed.
 			*/
-			Object * instanceAdd(Object * o);
+			std::shared_ptr<Object> instanceAdd(Object * o);
+
+			/**
+			*/
+			std::shared_ptr<Object> instanceAdd(std::shared_ptr<Object>);
+
 
 			/**
 				Adds multiple instances to the world.

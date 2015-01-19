@@ -2,6 +2,7 @@
 #define OBJECT_HPP
 
 #include <Flexium/Flexium.hpp>
+#include <Flexium/Memory.hpp>
 
 namespace flx {
 
@@ -166,7 +167,7 @@ namespace flx {
 				Called when another object is added to the world.
 				This is not called on objects that do not implement it.
 			*/
-			virtual void onInstanceAdded(Object *);
+			virtual void onInstanceAdded(std::shared_ptr<Object>);
 
 			/**
 				Virtual destructor on object.
@@ -297,7 +298,7 @@ namespace flx {
 			/**
 				Checks if the current object collides with another based on their relative positions and bounding boxes.
 			*/
-			bool collidesWith(Object *);
+			bool collidesWith(flx::shared_ptr_autocast<Object>);
 
 	};
 

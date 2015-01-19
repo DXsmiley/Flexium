@@ -250,7 +250,7 @@ namespace flx {
 			if (cursor_spr) {
 				Sprite::draw(Input::mouseX(), Input::mouseY(), "debug_cursor");
 			}
-			for (auto o : getWorld() -> instanceGet<Object*>()) {
+			for (auto o : getWorld() -> instanceGet<Object>()) {
 				Vector tl = o -> boundTopLeft();
 				Vector dm = o -> getDimensions();
 				sf::Color col(128, 128, 128);
