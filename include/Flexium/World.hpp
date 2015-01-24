@@ -145,8 +145,8 @@ namespace flx {
 				Returns a single instance of a type of inactive object, or nullptr if none exist.
 			*/
 			template <typename T>
-			T instanceGetSingleInactive() {
-				for (T i : InstanceList<T>(this, true)) {
+			std::shared_ptr<T> instanceGetSingleInactive() {
+				for (std::shared_ptr<T> i : InstanceList<T>(this, true)) {
 					return i;
 				}
 				return nullptr;
@@ -157,8 +157,8 @@ namespace flx {
 				This is slow, so use sparingly.
 			*/
 			template <typename T>
-			T instanceGetSingle(unsigned int n) {
-				for (T i : InstanceList<T>(this, false)) {
+			std::shared_ptr<T> instanceGetSingle(unsigned int n) {
+				for (std::shared_ptr<T> i : InstanceList<T>(this, false)) {
 					if ((n--) == 0) return i;
 				}
 				return nullptr;
@@ -169,8 +169,8 @@ namespace flx {
 				This is slow, so use sparingly.
 			*/
 			template <typename T>
-			T instanceGetSingleInactive(unsigned int n) {
-				for (T i : InstanceList<T>(this, true)) {
+			std::shared_ptr<T> instanceGetSingleInactive(unsigned int n) {
+				for (std::shared_ptr<T> i : InstanceList<T>(this, true)) {
 					if ((n--) == 0) return i;
 				}
 				return nullptr;
@@ -192,6 +192,14 @@ namespace flx {
 			template <typename T>
 			unsigned int instanceCountInactive() {
 				return InstanceList<T>(this, true).size();
+			}
+
+			template <typename T>
+			std::shared_ptr<T> instanceFind(T * o) {
+				for (std::shared_ptr<T> i : InstanceList<T>(this, false)) {
+					if (i.get() == o) return i;
+				}
+				return nullptr;
 			}
 
 			/**
