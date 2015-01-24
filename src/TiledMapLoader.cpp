@@ -22,13 +22,13 @@ namespace flx {
 
 		CSVLocale(): std::ctype<char>(get_table()) {};
 
-	    static std::ctype_base::mask const* get_table() {
-	        static std::vector<std::ctype_base::mask> rc(table_size, std::ctype_base::mask());
-	        rc[','] = std::ctype_base::space;
-	        rc['\n'] = std::ctype_base::space;
-	        rc[' '] = std::ctype_base::space;
-	        return &rc[0];
-	    }
+		static std::ctype_base::mask const* get_table() {
+			static std::vector<std::ctype_base::mask> rc(table_size, std::ctype_base::mask());
+			rc[','] = std::ctype_base::space;
+			rc['\n'] = std::ctype_base::space;
+			rc[' '] = std::ctype_base::space;
+			return &rc[0];
+		}
 	};
 
 	RuleSet rules;
@@ -38,11 +38,11 @@ namespace flx {
 	}
 
 	void tiledMapLoad(const char * filename, World * world) {
-		std::cout << "Loading Tiled Map " << filename << std::endl;
+		Console::Log << "Loading Tiled Map " << filename << std::endl;
 		pugi::xml_document doc;
 		pugi::xml_parse_result result = doc.load_file(filename);
 		if (!result) {
-			std::cout << "An error occured when loading Tiled Map file " << filename << std::endl;
+			Console::Error << "  An error occured while parsing Tiled Map file " << filename << std::endl;
 		} else {
 			pugi::xml_node root = doc.child("map");
 			if (root.attribute("backgroundcolor")) {
@@ -50,26 +50,38 @@ namespace flx {
 				int b = (hexDigitToInt(s[5]) * 16) + hexDigitToInt(s[6]);
 				int g = (hexDigitToInt(s[3]) * 16) + hexDigitToInt(s[4]);
 				int r = (hexDigitToInt(s[1]) * 16) + hexDigitToInt(s[2]);
-				std::cout << "Background color: " << s << ' ' << r << ' ' << g << ' ' << b << std::endl;
+				// std::cout << "Background color: " << s << ' ' << r << ' ' << g << ' ' << b << std::endl;
 				Window::setClearColor(::sf::Color(r, g, b));
 			}
 			int tm_width = root.attribute("width").as_int();
 			int tm_height = root.attribute("height").as_int();
-			//  std::cout << "Width: " << root.attribute("width").as_int(); << std::endl;
-			//  std::cout << "Height: " << root.attribute("height").as_int() << std::endl;
-			//  std::cout << "Orientation: " << root.attribute("orientation").value() << std::endl;
+
 			// Scan list of tilesets
-			const char * tileset_name = "tilemap";
-			for (pugi::xml_node node = root.child("tileset"); node; node = node.next_sibling("tileset")) {
-				std::cout << "Tileset < " << node.attribute("name").value() << " > " << std::endl;
-				tileset_name = node.attribute("name").value();
+			struct tileset_t {
+				std::string name;
+				int tid;
+				int tile_width;
+				int tile_height;
+			};
+			std::list<tileset_t> tilesets;
+			for (pugi::xml_node node_tilemap : root.children("tileset")) {
+				Console::Log << "  Tileset < " << node_tilemap.attribute("name").value() << " > " << std::endl;
+				// tileset_name = node_tilemap.attribute("name").value();
+				tileset_t ts;
+				ts.name = node_tilemap.attribute("name").value();
+				ts.tid = node_tilemap.attribute("firstgid").as_int(1);
+				ts.tile_width = node_tilemap.attribute("tilewidth").as_int();
+				ts.tile_height = node_tilemap.attribute("tileheight").as_int();
+				tilesets.push_back(ts);
 			}
+
 			// Scan list of tile layers
-			for (pugi::xml_node node = root.child("layer"); node; node = node.next_sibling("layer")) {
-				std::cout << "Layer < " << node.attribute("name").value() << " > " << std::endl;
-				pugi::xml_node data = node.child("data");
+			for (pugi::xml_node node_tile_layer : root.children("layer")) {
+				Console::Log << "  Layer < " << node_tile_layer.attribute("name").value() << " > " << std::endl;
+				pugi::xml_node data = node_tile_layer.child("data");
 				if (std::string("csv") == std::string(data.attribute("encoding").value())) {
-					TileMap * tilemap = new TileMap(tm_width, tm_height, tileset_name);
+					TileMap * tilemap = new TileMap(tm_width, tm_height);
+					tilemap -> setTexture(tilesets.front().name.c_str());
 					std::stringstream ss;
 					ss.imbue(std::locale(std::locale(), new CSVLocale())); // Give the stringstream the locale
 					ss.str(std::string(data.child_value()));
@@ -82,11 +94,12 @@ namespace flx {
 					}
 					world -> instanceAdd(tilemap);
 				} else {
-					std::cout << "Tile Data format not supported (" << data.attribute("encoding").value() << ")" << std::endl;
+					Console::Error << "  Tile Data format not supported (" << data.attribute("encoding").value() << ")" << std::endl;
 				}
 			}
+
 			// Scan list of objects
-			for (pugi::xml_node node = root.child("objectgroup"); node; node = node.next_sibling("objectgroup")) {
+			for (pugi::xml_node node : root.children("objectgroup")) {
 				std::cout << "Object Group < " <<  node.attribute("name").value() << " > " << std::endl;
 				std::string group_name = node.attribute("name").value();
 				if (rules.count(group_name) > 0) {
@@ -96,37 +109,17 @@ namespace flx {
 						info.position = Vector(object.attribute("x").as_int(), object.attribute("y").as_int());
 						info.dimensions = Vector(object.attribute("width").as_int(), object.attribute("height").as_int());
 						info.name = object.attribute("name").value();
-						for (pugi::xml_node param_node : object.child("properties").children()) {
+						for (pugi::xml_node param_node : object.child("properties").children("property")) {
 							info.parameters[param_node.attribute("name").value()] = param_node.attribute("value").value();
-							std::cout << "Loaded paremeter " << param_node.attribute("name").value() << " : " << param_node.attribute("value").value() << std::endl;
+							// std::cout << "Loaded paremeter " << param_node.attribute("name").value() << " : " << param_node.attribute("value").value() << std::endl;
 						}
 						(*rules[group_name])(info);
 					}
 				} else {
 					Console::Error << "No known action for object group named '" << group_name << "'" << std::endl;
 				}
-				/*if (group_name == "Walls") {
-					for (pugi::xml_node object = node.child("object"); object; object = object.next_sibling("object")) {
-						//std::cout << "Creating wall" << std::endl;
-						Vector pos(object.attribute("x").as_int(), object.attribute("y").as_int());
-						Vector dim(object.attribute("width").as_int(), object.attribute("height").as_int());
-						Wall * wall = new Wall();
-						wall -> setPosition(pos);
-						wall -> setDimensions(dim);
-						world -> instanceAdd(wall);
-					}
-					continue;
-				}
-				if (group_name == "SpawnGround") {
-					for (pugi::xml_node object = node.child("object"); object; object = object.next_sibling("object")) {
-						Vector pos(object.attribute("x").as_int(), object.attribute("y").as_int());
-						Vector dim(object.attribute("width").as_int(), object.attribute("height").as_int());
-						world -> instanceAdd(new SpawnGround(pos, dim));
-					}
-					continue;
-				}*/
 			}
-			// Scan list of image layers (will probably not be implemented until needed)
+			// Scan list of image layers (will probably not be implemented until much later)
 		}
 	}
 

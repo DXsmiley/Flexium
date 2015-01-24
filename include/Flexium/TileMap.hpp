@@ -4,7 +4,10 @@
 #include <Flexium/Object.hpp>
 #include <Flexium/Flexium.hpp>
 
-#include <SFML/Graphics.hpp>
+// Foaward declaration
+namespace sf {
+	class Texture;
+}
 
 namespace flx {
 
@@ -15,7 +18,7 @@ namespace flx {
 			int width;
 			int height;
 			int * array;
-			::sf::Texture * texture;
+			::sf::Texture * texture; // direct manipulation of sf::Texture for speed
 			Vector tile_dim;
 			int tex_width;
 			int tex_height;
@@ -24,10 +27,11 @@ namespace flx {
 
 		public:
 
-			TileMap(int width, int height, const char * texture);
+			TileMap(int width, int height);
 			//TileMap(unsigned int width, unsigned int height, std::string texture);
 
 			void setTile(int x, int y, int id);
+			void setTexture(const char * tex_name);
 
 			virtual void onDraw();
 			virtual ~TileMap() {};
