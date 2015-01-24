@@ -84,7 +84,7 @@ namespace flx {
 			::sf::View view = window -> getView();
 			view.setSize(::sf::Vector2f(window -> getSize()));
 			view.zoom(view_zoom);
-			view.setCenter(x, y);
+			view.setCenter((int)x, (int)y); // not sure about this one, in theory it should solve some issues but it might not
 			window -> setView(view);
 		}
 
