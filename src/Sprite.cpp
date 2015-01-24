@@ -21,6 +21,8 @@ namespace flx {
 			int y;
 			int width;
 			int height;
+			int origin_x;
+			int origin_y;
 			int n_frames;
 			int oversized;
 			int undersized;
@@ -42,7 +44,6 @@ namespace flx {
 			spr.height = t -> getSize().y;
 			spr.n_frames = 1;
 			spr.oversized = 1;
-			spr.undersized = 1;
 			sprite_mapping[std::string(name)] = spr;
 		}
 
@@ -70,7 +71,6 @@ namespace flx {
 						std::string tex_file = tex_node.attribute("source").value();
 						::sf::Texture * tex_object = loadTexture(tex_file.c_str());
 						int oversized = tex_node.attribute("oversized").as_int(1);
-						int undersized = tex_node.attribute("undersized").as_int(1);
 						// read in strip mappings
 						for (pugi::xml_node strip_node : tex_node.children("strip")) {
 							std::string strip_name = strip_node.attribute("name").value();
@@ -84,8 +84,9 @@ namespace flx {
 							spr.width = strip_node.attribute("width").as_int();
 							spr.height = strip_node.attribute("height").as_int();
 							spr.n_frames = strip_node.attribute("frames").as_int(1);
+							spr.origin_x = strip_node.attribute("origin_x").as_int(0);
+							spr.origin_y = strip_node.attribute("origin_y").as_int(0);
 							spr.oversized = oversized;
-							spr.undersized = undersized;
 							// Console::Log << "Strip: " << strip_name << ", " << spr.x << ", " << spr.y << std::endl;
 							sprite_mapping[strip_name] = spr;
 						}
@@ -110,9 +111,9 @@ namespace flx {
 				::sf::Sprite spr(*ss.texture);
 				spr.setColor(::sf::Color(255, 255, 255, std::min(255.0, alpha * 255)));
 				spr.setTextureRect(::sf::IntRect(ss.x + (ss.width * frame), ss.y, ss.width, ss.height));
-				float scale = (float)ss.undersized / (float)ss.oversized;
+				float scale = 1.0 / (float)ss.oversized;
 				spr.setScale(scale, scale);
-				spr.setPosition(x, y);
+				spr.setPosition(x - ss.origin_x, y - ss.origin_y);
 				Window::getHandle() -> draw(spr);
 			} else {
 				Console::Error << "No sprite strip named '" << strip_name << "'" << std::endl;
