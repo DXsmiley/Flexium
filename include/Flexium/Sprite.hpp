@@ -2,6 +2,8 @@
 #define FLEXIUM_SPRITE_HPP
 
 #include <Flexium/Window.hpp>
+#include <Flexium/Transform.hpp>
+#include <SFML/Graphics.hpp>
 
 namespace sf {
 	class Texture;
@@ -28,6 +30,9 @@ namespace flx {
 			Draws a sprite at the given location with alpha value.
 			Texture is accessed from the texture mapping using the given name.
 		*/
+		void draw(sf::Transform transform, sf::Color blend, const char * strip_name, int frame);
+		void draw(sf::Transform transform, const char * strip_name, int frame);
+		void draw(sf::Transform transform, const char * name);
 		void draw(double x, double y, double alpha, const char * name);
 		void draw(double x, double y, double alpha, std::string name);
 		void draw(double x, double y, const char * name);

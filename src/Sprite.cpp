@@ -103,21 +103,36 @@ namespace flx {
 			}
 		}
 
-		void draw(double x, double y, double alpha, const char * strip_name, int frame) {
+		void draw(sf::Transform transform, sf::Color blend, const char * strip_name, int frame) {
 			if (sprite_mapping.count(std::string(strip_name)) == 1) {
 				sprite_struct& ss = sprite_mapping[strip_name];
 				while (frame < 0) frame += ss.n_frames; // maybe this should just be assert()ed and throw an error if it fails? unsigned int?
 				frame %= ss.n_frames;
 				::sf::Sprite spr(*ss.texture);
-				spr.setColor(::sf::Color(255, 255, 255, std::min(255.0, alpha * 255)));
+				spr.setColor(blend);
 				spr.setTextureRect(::sf::IntRect(ss.x + (ss.width * frame), ss.y, ss.width, ss.height));
+				sf::Transform sys_transform;
+				sys_transform.translate(ss.origin_x, ss.origin_y);
 				float scale = 1.0 / (float)ss.oversized;
-				spr.setScale(scale, scale);
-				spr.setPosition(x - ss.origin_x, y - ss.origin_y);
-				Window::getHandle() -> draw(spr);
+				sys_transform.scale(scale, scale);
+				Window::getHandle() -> draw(spr, sys_transform * transform);
 			} else {
 				Console::Error << "No sprite strip named '" << strip_name << "'" << std::endl;
 			}
+		}
+
+		void draw(sf::Transform trans, const char * strip_name, int frame) {
+			draw(trans, sf::Color::White, strip_name, frame);
+		}
+
+		void draw(sf::Transform trans, const char * name) {
+			draw(trans, sf::Color::White, name, 1);
+		}
+
+		void draw(double x, double y, double alpha, const char * strip_name, int frame) {
+			sf::Transform trans;
+			trans.translate(x, y);
+			draw(trans, ::sf::Color(255, 255, 255, std::min(255.0, alpha * 255)), strip_name, frame);
 		}
 
 		void draw(double x, double y, double alpha, ::sf::Texture * tex) {
