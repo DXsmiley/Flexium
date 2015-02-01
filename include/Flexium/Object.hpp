@@ -27,10 +27,6 @@ namespace flx {
 			Vector dimensions;
 			Vector origin;
 
-			/*void increaseRefCount();
-			void decreaseRefCount();
-			bool hasNoRefs();*/
-
 		public:
 
 			/**
@@ -38,7 +34,7 @@ namespace flx {
 				Upon construction, objects adhere to the following conditions:
 				 - isAlive() will return true.
 				 - getID() will return an (incorrect) id of 0.
-				 - getWorld() will return nullptr
+				 - getWorld() will return a null pointer
 			*/
 			Object(): depth(0), alive(true), active(true), persistent(false), meta(false), id(0), my_world(nullptr) {};
 
@@ -301,49 +297,6 @@ namespace flx {
 			bool collidesWith(flx::shared_ptr_autocast<Object>);
 
 	};
-
-	// This garbage collection system is stil an idea.
-
-	/*
-	class Pointer {
-
-		private:
-
-			Object * object;
-
-			void drop() {
-				if (object != nullptr) {
-					object -> decreaseRefCount();
-					if (object -> hasNoRefs()) {
-						delete object;
-					}
-				}
-			}
-
-		public:
-
-			Pointer(Object * o) {
-				object = o;
-				o -> increaseRefCount();
-			};
-
-			Pointer() {
-				object = nullptr;
-			}
-
-			Pointer(const Pointer& p) {
-				object = p.object;
-				object -> increaseRefCount();
-			}
-
-			~Pointer() {
-				drop();
-			}
-
-	};
-
-	friend Pointer;
-	*/
 
 }
 

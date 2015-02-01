@@ -5,7 +5,10 @@
 
 namespace flx {
 
-	//This is an std::shared_ptr that will automatically cast other things to it.
+	/**
+		This is similar to an std::shared_ptr, however it will perform some automatic casts.
+		@see Object::collidesWith for example usage
+	*/
 	template <typename T>
 	class shared_ptr_autocast {
 
