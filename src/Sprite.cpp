@@ -62,6 +62,8 @@ namespace flx {
 			pugi::xml_parse_result result = doc.load_file(filename);
 			if (!result) {
 				Console::Error << "An error occured while parsing sprite sheet XML!" << std::endl;
+				Console::Error << result.description() << " : " << result.offset << std::endl;
+
 			} else {
 				pugi::xml_node root = doc.child("spritesheet");
 				if (root.attribute("format").as_int() == 2) {
@@ -79,10 +81,10 @@ namespace flx {
 							}
 							sprite_struct spr;
 							spr.texture = tex_object;
-							spr.x = strip_node.attribute("x").as_int();
-							spr.y = strip_node.attribute("y").as_int();
-							spr.width = strip_node.attribute("width").as_int();
-							spr.height = strip_node.attribute("height").as_int();
+							spr.x = strip_node.attribute("x").as_int(0);
+							spr.y = strip_node.attribute("y").as_int(0);
+							spr.width = strip_node.attribute("width").as_int(tex_object -> getSize().x);
+							spr.height = strip_node.attribute("height").as_int(tex_object -> getSize().y);
 							spr.n_frames = strip_node.attribute("frames").as_int(1);
 							spr.origin_x = strip_node.attribute("origin_x").as_int(0);
 							spr.origin_y = strip_node.attribute("origin_y").as_int(0);
@@ -112,10 +114,10 @@ namespace flx {
 				spr.setColor(blend);
 				spr.setTextureRect(::sf::IntRect(ss.x + (ss.width * frame), ss.y, ss.width, ss.height));
 				sf::Transform sys_transform;
-				sys_transform.translate(ss.origin_x, ss.origin_y);
 				float scale = 1.0 / (float)ss.oversized;
 				sys_transform.scale(scale, scale);
-				Window::getHandle() -> draw(spr, sys_transform * transform);
+				sys_transform.translate(0 - ss.origin_x, 0 - ss.origin_y);
+				Window::getHandle() -> draw(spr, transform * sys_transform);
 			} else {
 				Console::Error << "No sprite strip named '" << strip_name << "'" << std::endl;
 			}
