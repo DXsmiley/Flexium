@@ -25,6 +25,7 @@ namespace flx {
 			Vector& operator *=(double s);
 			Vector& operator /=(double s);
 			Vector& operator =(std::initializer_list<double>);
+			bool operator !=(const Vector& v) const;
 			double length() const;
 			double angle() const;
 			Vector rotate(double ang) const;

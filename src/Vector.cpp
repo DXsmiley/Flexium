@@ -48,6 +48,10 @@ namespace flx {
 		return *this;
 	}
 
+	bool Vector::operator !=(const Vector& v) const {
+		return x != v.x || y != v.y;
+	}
+
 	Vector& Vector::operator =(std::initializer_list<double> li) {
 		if (li.size() == 2) {
 			for (double n : li) {
