@@ -194,7 +194,7 @@ namespace flx {
 			Window::viewSetZoom(1);
 			Window::viewSetPosition(Window::getWidth() / 2, Window::getHeight() / 2);
 			sf::RectangleShape sf_rec(sf::Vector2f(420, 480));
-			sf_rec.setFillColor(sf::Color(0, 0, 0, 96));
+			sf_rec.setFillColor(sf::Color(0, 0, 0, 140));
 			Window::getHandle() -> draw(sf_rec);
 			std::stringstream ss;
 			ss << "FPS: " << fps << ", " << fps_hold;
