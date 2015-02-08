@@ -19,7 +19,6 @@ namespace flx {
 				for (pugi::xml_node snd_node : root.children("font")) {
 					std::string snd_name = snd_node.attribute("name").value();
 					std::string snd_source = snd_node.attribute("source").value();
-					Console::Log << "Font: " << snd_name << ' ' << snd_source << std::endl;
 					loadFont(snd_name.c_str(), snd_source.c_str());
 				}
 			}
