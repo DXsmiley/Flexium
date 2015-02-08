@@ -55,13 +55,15 @@ namespace flx {
 	} object_sorter;
 
 	template <typename T>
-	void callEvent(std::vector<std::shared_ptr<Object> >& vec, const T action) {
+	void callEvent(std::vector<std::shared_ptr<Object> >& vec, const T action, bool conditional) {
 		std::stable_sort(vec.begin(), vec.end(), object_sorter);
 		int last = 0;
 		for (unsigned int i = 0; i < vec.size(); ++i) {
 			try {
 				if (vec[i] -> isAlive() && vec[i] -> isActive()) {
-					action(vec[i]);
+					if (conditional || vec[i] -> isMeta()) {
+						action(vec[i]);
+					}
 				}
 				vec[last] = vec[i];
 				++last;
@@ -77,7 +79,6 @@ namespace flx {
 		id_counter = 0;
 		trigger_update = true;
 		trigger_draw = true;
-		my_clock.restart();
 	}
 
 	std::shared_ptr<Object> World::instanceAdd(std::shared_ptr<Object> o) {
@@ -85,7 +86,7 @@ namespace flx {
 		o -> onCreate();
 		// signal to existing objects that this object has been added (THIS HAS NOT BEEN THOUGHROUGLY TESTED)
 		instances.push_back(o);
-		callEvent(instances_on_instance_added, CallEventInstanceAdded(o));
+		callEvent(instances_on_instance_added, CallEventInstanceAdded(o), true);
 		instances_on_instance_added.push_back(o);
 		instances_on_update.push_back(o);
 		instances_on_draw.push_back(o);
@@ -107,12 +108,9 @@ namespace flx {
 		if (open) {
 			Input::update();
 			Window::clear();
-			callEvent(instances_on_update, CallEventUpdate());
-			callEvent(instances_on_draw, CallEventDraw());
+			callEvent(instances_on_update, CallEventUpdate(), trigger_update);
+			callEvent(instances_on_draw, CallEventDraw(), trigger_draw);
 			Window::display();
-			sf::Time elapsed = my_clock.restart();
-			double time_to_sleep = std::max(0.01, (1.0 / 60.0) - elapsed.asSeconds());
-			sf::sleep(sf::seconds(time_to_sleep));
 		}
 		return open;
 	}

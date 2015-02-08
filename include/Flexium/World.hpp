@@ -26,7 +26,6 @@ namespace flx {
 			unsigned int id_counter;
 			bool trigger_update;
 			bool trigger_draw;
-			sf::Clock my_clock;
 
 		public:
 
