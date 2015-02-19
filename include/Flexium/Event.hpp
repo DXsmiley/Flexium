@@ -6,8 +6,8 @@ namespace flx {
 	class World;
 
 	/**
-		Events are things that occur...
-		@warning Stuff happens.
+		Events are things that occur.
+		@warning They should be handled using std::shared_ptr
 	*/
 	class Event {
 
@@ -21,6 +21,8 @@ namespace flx {
 			Event(World * w): world(w) {};
 			World * getWorld();
 			void setWorld(World *);
+			void trigger(World * w);
+			void onTrigger(World * w);
 			virtual void trigger();
 			virtual void onTrigger() {};
 			virtual ~Event() {};

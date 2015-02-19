@@ -14,4 +14,14 @@ namespace flx {
 		onTrigger();
 	}
 
+	void Event::trigger(World * w) {
+		setWorld(w);
+		trigger();
+	}
+
+	void Event::onTrigger(World * w) {
+		setWorld(w);
+		trigger();
+	}
+
 }
