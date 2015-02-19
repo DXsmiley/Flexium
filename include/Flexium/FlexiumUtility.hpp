@@ -51,11 +51,12 @@ namespace flx {
 
 		private:
 
-			std::vector<Event *> events;
+			std::vector<std::shared_ptr<Event> > events;
 
 		public:
 
-			EventCompond(std::initializer_list<Event*>);
+			EventCompond(std::initializer_list<std::shared_ptr<Event> >);
+			// EventCompond(std::initializer_list<Event*>);
 			virtual void onTrigger();
 			virtual ~EventCompond();
 
@@ -84,7 +85,7 @@ namespace flx {
 		protected:
 
 			std::string image;
-			Event * click_event;
+			std::shared_ptr<Event> click_event;
 
 		public:
 

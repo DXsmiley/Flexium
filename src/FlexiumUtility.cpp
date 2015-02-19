@@ -15,8 +15,8 @@ namespace flx {
 		obj -> destroy();
 	}
 
-	EventCompond::EventCompond(std::initializer_list<Event *> il) {
-		for (Event * i : il) {
+	EventCompond::EventCompond(std::initializer_list<std::shared_ptr<Event> > il) {
+		for (const auto& i : il) {
 			events.push_back(i);
 		}
 
@@ -24,23 +24,18 @@ namespace flx {
 
 	void EventCompond::onTrigger() {
 		for (unsigned int i = 0; i < events.size(); ++i) {
-			events[i] -> setWorld(world);
-			events[i] -> trigger();
+			events[i] -> trigger(world);
 		}
 	}
 
 	EventCompond::~EventCompond() {
-		for (unsigned int i = 0; i < events.size(); ++i) {
-			delete events[i];
-		}
+		// Events are not automatically freed because shared_ptr's are used!
 	}
 
 	void Timer::onUpdate() {
 		if (isAlive() && event) {
 			if (mytime == 0) {
-				event -> setWorld(getWorld());
-				event -> trigger();
-				delete event;
+				event -> trigger(getWorld());
 				event = nullptr;
 				destroy();
 			} else {
