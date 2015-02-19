@@ -183,4 +183,8 @@ namespace flx {
 		return boundLeft() < o -> boundRight() && boundRight() > o -> boundLeft() && boundTop() < o -> boundBottom() && boundBottom() > o -> boundTop();
 	}
 
+	bool Object::collidesWith(flx::Vector p) {
+		return p.x > boundLeft() && p.x < boundRight() && p.y > boundTop() && p.y < boundBottom();
+	}
+
 }

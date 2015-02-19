@@ -296,6 +296,11 @@ namespace flx {
 			*/
 			bool collidesWith(flx::shared_ptr_autocast<Object>);
 
+			/**
+				Checks if the point is contained within the boinding box of the object.
+			*/
+			bool collidesWith(flx::Vector);
+
 	};
 
 }
