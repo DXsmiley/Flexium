@@ -4,11 +4,10 @@
 namespace flx {
 
 	void Timer::onUpdate() {
-		if (isAlive() && event) {
+		if (isAlive() && event != nullptr) {
 			if (mytime == 0) {
 				event -> setWorld(getWorld());
 				event -> trigger();
-				delete event;
 				event = nullptr;
 				destroy();
 			} else {
