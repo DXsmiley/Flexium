@@ -88,6 +88,12 @@ namespace flx {
 							spr.n_frames = strip_node.attribute("frames").as_int(1);
 							spr.origin_x = strip_node.attribute("origin_x").as_int(0);
 							spr.origin_y = strip_node.attribute("origin_y").as_int(0);
+							if (strip_node.attribute("origin_percentage").as_int(0)) {
+								(spr.origin_x *= spr.width) /= 100;
+								(spr.origin_y *= spr.height) /= 100;
+								// spr.origin_x /= 100;
+								// spr.origin_y /= 100;
+							}
 							spr.oversized = oversized;
 							// Console::Log << "Strip: " << strip_name << ", " << spr.x << ", " << spr.y << std::endl;
 							sprite_mapping[strip_name] = spr;
