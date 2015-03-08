@@ -11,6 +11,10 @@ namespace flx {
 		std::cout << text << std::endl;
 	}
 
+	void EventCreate::onTrigger() {
+		getWorld() -> instanceAdd(obj);
+	}
+
 	void EventDestroy::onTrigger() {
 		obj -> destroy();
 	}
@@ -32,17 +36,17 @@ namespace flx {
 		// Events are not automatically freed because shared_ptr's are used!
 	}
 
-	void Timer::onUpdate() {
-		if (isAlive() && event) {
-			if (mytime == 0) {
-				event -> trigger(getWorld());
-				event = nullptr;
-				destroy();
-			} else {
-				mytime--;
-			}
-		}
-	}
+	// void Timer::onUpdate() {
+	// 	if (isAlive() && event) {
+	// 		if (mytime == 0) {
+	// 			event -> trigger(getWorld());
+	// 			event = nullptr;
+	// 			destroy();
+	// 		} else {
+	// 			mytime--;
+	// 		}
+	// 	}
+	// }
 
 	void Button::onUpdate() {
 		double mx = Input::mouseX() - position.x;

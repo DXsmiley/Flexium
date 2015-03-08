@@ -33,15 +33,29 @@ namespace flx {
 
 	};
 
+	class EventCreate : public Event {
+
+		private:
+
+			std::shared_ptr<Object> obj;
+
+		private:
+
+			EventCreate(std::shared_ptr<Object> o): obj(o) {};
+			virtual void onTrigger();
+			virtual ~EventCreate() {};
+
+	};
+
 	class EventDestroy : public Event {
 
 		private:
 
-			Object * obj;
+			std::shared_ptr<Object> obj;
 
 		public:
 
-			EventDestroy(Object * o): obj(o) {};
+			EventDestroy(std::shared_ptr<Object> o): obj(o) {};
 			virtual void onTrigger();
 			virtual ~EventDestroy() {};
 
@@ -157,6 +171,7 @@ namespace flx {
 
 				public:
 
+					AlgorithmPower(): e(2) {};
 					AlgorithmPower(double exponent): e(exponent) {};
 
 					virtual double f(double t);
