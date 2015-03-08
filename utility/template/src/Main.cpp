@@ -10,6 +10,7 @@ int main() {
 
 	flx::Window::WindowSettings ws;
 	ws.title = "Window Title";
+	flx::Window::setClearColor(sf::Color::White);
 	flx::Window::initiate(ws);
 
 	flx::Sprite::loadMapping("spritesheet.xml");
