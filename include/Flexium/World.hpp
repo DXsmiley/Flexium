@@ -2,6 +2,7 @@
 #define WORLD_HPP
 
 #include <vector>
+#include <map>
 #include <list>
 #include <initializer_list>
 #include <memory>
@@ -23,6 +24,7 @@ namespace flx {
 			std::vector<std::shared_ptr<Object> > instances_on_instance_added;
 			std::vector<std::shared_ptr<Object> > instances_on_update;
 			std::vector<std::shared_ptr<Object> > instances_on_draw;
+			std::map<size_t, std::list<std::shared_ptr<Object> > > instances_by_typeid;
 			unsigned int id_counter;
 			bool trigger_update;
 			bool trigger_draw;
@@ -114,11 +116,21 @@ namespace flx {
 			World();
 
 			/**
-				Retuns a list that can be used to iterate over the avaliable objects.
+				Returns a list that can be used to iterate over the avaliable objects.
 			*/
 			template <typename T>
 			InstanceList<T> instanceGet() {
 				return InstanceList<T>(this, false);
+			}
+
+			/**
+				Returns a list that can be used to iterate over the avaliable objects.
+				@warning This is experemental.
+			*/
+			template <typename T>
+			const std::list<std::shared_ptr<T> >& instanceGetFast() {
+				size_t key = typeid(T).hash_code();
+				return instances_by_typeid[key];
 			}
 
 			/**
@@ -193,6 +205,11 @@ namespace flx {
 				return InstanceList<T>(this, true).size();
 			}
 
+			/**
+				This appears to do the same thing as instanceGetSingle.
+				You should probably ignore this function.
+				@warning Ignore this function. I don't know why it's here.
+			*/
 			template <typename T>
 			std::shared_ptr<T> instanceFind(T * o) {
 				for (std::shared_ptr<T> i : InstanceList<T>(this, false)) {
@@ -219,13 +236,34 @@ namespace flx {
 			
 			/**
 				Processes a single tick.
-				Returns true if the programm should continue to run, false otherwise.
+				Returns true if the program should continue to run, false otherwise.
 			*/
 			bool simulate();
 
+			/**
+				Returns whether the world is set to call Object::onUpdate
+			*/
 			bool getTriggerUpdate();
+
+			/**
+				Returns whether the world is set to call Object::onDraw
+			*/
 			bool getTriggerDraw();
+
+			/**
+				Toggle whether to called the onUpdate function of entities.
+				'Meta' instances always have the update function called.
+				/sa Object::onUpdate
+				/sa Object::setMeta
+			*/
 			void setTriggerUpdate(bool);
+			
+			/**
+				Toggle whether to called the onDraw function of entities.
+				'Meta' instances always have the draw function called.
+				/sa Object::onDraw
+				/sa Object::setMeta
+			*/
 			void setTriggerDraw(bool);
 
 	};

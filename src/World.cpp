@@ -84,12 +84,15 @@ namespace flx {
 	std::shared_ptr<Object> World::instanceAdd(std::shared_ptr<Object> o) {
 		o -> registerWorld(id_counter++, this);
 		o -> onCreate();
-		// signal to existing objects that this object has been added (THIS HAS NOT BEEN THOUGHROUGLY TESTED)
 		instances.push_back(o);
+		// signal to existing objects that this object has been added (THIS HAS NOT BEEN THOUGHROUGLY TESTED)
 		callEvent(instances_on_instance_added, CallEventInstanceAdded(o), true);
 		instances_on_instance_added.push_back(o);
 		instances_on_update.push_back(o);
 		instances_on_draw.push_back(o);
+		// Experemental map for fast access
+		size_t key = typeid(o).hash_code();
+		instances_by_typeid[key].push_back(o);
 		return o;
 	}
 
