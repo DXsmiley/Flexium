@@ -14,6 +14,9 @@ namespace flx {
 
 	namespace Window {
 
+		/**
+			Used to specify the parameters used when creating a window.
+		*/
 		struct WindowSettings {
 
 			unsigned int width;
@@ -29,17 +32,51 @@ namespace flx {
 
 		};
 
+		/**
+			Get the sfml handle for the window.
+		*/
 		::sf::RenderWindow * getHandle();
-		void initiate(WindowSettings);
-		void setFrameRateLimit(int);
+
+		/**
+			Create the window.
+			\param params Parameters used for creating the window. 
+			\sa WindowSettings
+		*/
+		void initiate(WindowSettings params);
+
+		/**
+			Close the window.
+		*/
 		void close();
 
+		/**
+			Set the frame rate limit of the window.
+		*/
+		void setFrameRateLimit(int);
+
+		/**
+			Sets the colour that is used to clear the window every frame.
+		*/
 		void setClearColor(::sf::Color);
 
+		/**
+			Clear the window.
+		*/
 		void clear();
+		
+		/**
+			Update the window.
+		*/
 		void display();
 
+		/**
+			Get the width of the window.
+		*/
 		unsigned int getWidth();
+		
+		/**
+			Get the height of the window.
+		*/
 		unsigned int getHeight();
 
 		void viewSetPosition(double x, double y);

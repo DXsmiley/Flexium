@@ -30,6 +30,9 @@
 # Dependency Files
 *.d
 
+# Doxygen output folder
+html
+
 # =========================
 # Operating System Files
 # =========================

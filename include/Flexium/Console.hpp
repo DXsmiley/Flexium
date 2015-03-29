@@ -14,6 +14,10 @@ namespace flx {
 
 	class World;
 
+	/**
+		Debugging tool.
+		To use it, simply add an instance of it to the world.
+	*/
 	class ConsoleInGame : public Object {
 
 		private:
@@ -38,12 +42,18 @@ namespace flx {
 
 	namespace Console {
 
+		/**
+			Used to specify a console command.
+		*/
 		struct CommandInfo {
 			std::vector<std::string> args;
 			World * world;
 			ConsoleInGame * console;
 		};
 
+		/**
+			Used to add a comment to the in-game console.
+		*/
 		void commandSet(std::string, void (*)(const CommandInfo&));
 
 	}

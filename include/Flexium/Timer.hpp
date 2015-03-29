@@ -7,6 +7,10 @@
 
 namespace flx {
 
+
+	/**
+		Triggers an event after a certain number of frames.
+	*/
 	class Timer: public Object {
 
 		private:
@@ -16,8 +20,15 @@ namespace flx {
 
 		public:
 
-			Timer(unsigned int t, flx::shared_ptr_autocast<Event> e): mytime(t), event(e) {};
+			/**
+				Create a new timer.
+				\param time The number of frames before the event is triggered.
+				\param event The event to trigger.
+			*/
+			Timer(unsigned int time, flx::shared_ptr_autocast<Event> event): mytime(time), event(event) {};
+			
 			virtual void onUpdate();
+			
 			virtual ~Timer() {};
 
 	};

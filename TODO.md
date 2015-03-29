@@ -1,5 +1,4 @@
-Todo List
-=========
+#Todo List
 
 This is a list of features and things that I would like to implement sometime in the future.
 

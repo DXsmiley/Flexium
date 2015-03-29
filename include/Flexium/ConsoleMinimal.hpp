@@ -9,10 +9,12 @@ namespace flx {
 
 	class ConsoleInGame;
 
+	/**
+		Version of std::ostream that is used to capture output.
+	*/
 	class ConsoleStream : public std::ostream {
 
 		private:
-
 
 			class MyStreamBuffer : public std::stringbuf {
 
@@ -41,8 +43,22 @@ namespace flx {
 
 	namespace Console {
 
+		/**
+			Used to print most output.
+			This is recommended over standard streams as it is compatiable with flx::ConsoleInGame.
+		*/
 		extern ConsoleStream Log;
+
+		/**
+			Used to print warning errors.
+			This is recommended over standard streams as it is compatiable with flx::ConsoleInGame.
+		*/
 		extern ConsoleStream Warn;
+		
+		/**
+			Used to print warning errors.
+			This is recommended over standard streams as it is compatiable with flx::ConsoleInGame.
+		*/
 		extern ConsoleStream Error;
 
 	};
